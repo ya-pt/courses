@@ -1,0 +1,35 @@
+.place-content-grid{
+    height: 400px;
+    grid-template: 100px 100px 100px/ 100px 100px;
+    /* align-content: space-around;
+    justify-content: space-between; */
+    place-content: space-around space-between;
+}
+/* place content уже задает поведение не элементам внутри контейнера, а самим ящикам */
+
+
+/* создаем новый пример */
+
+
+/* !!! place-self это как place-items, только для одного, или (even, odd) элементов */
+.place-self-grid{
+    grid-template: 100px 100px/ 150px 150px;
+    place-items: center stretch;
+    place-content: space-between;
+}
+
+/* зададим значения нечётным элементам */
+
+.place-self-grid div:nth-child(odd){
+    place-self: stretch center;
+}
+
+
+/* создаем новый пример */
+
+
+.min-max-content-grid{
+    grid-template-columns: 1fr min-content 1fr;    
+}
+
+/* нужно быть осторожным с max content, если контента слишком много, он будет вылазить и может поламать grid */

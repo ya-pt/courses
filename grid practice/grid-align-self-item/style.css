@@ -1,0 +1,28 @@
+.align-self-item{
+    grid-template: repeat(3, 100px)/ 1fr 1fr;
+    align-items: start;
+    justify-items: center;
+}
+
+/* align self позволяет нам манипулировать одним взятым блоком */
+
+.align-self-item div:nth-child(1){
+    align-self: end;
+    justify-self: start;
+}
+
+/* добавим изменения для парных элементов */
+
+.align-self-item div:nth-child(even){
+    align-self: stretch;
+    justify-self: end;
+}
+
+/* place items это смесь align items и justify items */
+
+.place-item-grid{
+    grid-template: 150px 150px 150px/ 1fr 1fr;
+    /* align-items: center;
+    justify-items: start; */
+    place-items: center start;
+}

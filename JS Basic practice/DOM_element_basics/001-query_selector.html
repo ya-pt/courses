@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <!-- querySelector - это метод JavaScript, который позволяет искать элементы на веб-странице по CSS-селекторам. 
+  Он возвращает первый элемент, который соответствует указанному селектору. -->
+
+  <!-- обычно используется вместе с методом document для доступа к элементам в документе. -->
+
+  <body>
+    <div>
+      <p id="first">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+        similique impedit quis voluptates accusamus dolorum, praesentium minima
+        culpa laboriosam? Veniam voluptatum, voluptatem reiciendis dignissimos
+        nesciunt voluptatibus temporibus harum obcaecati adipisci! Fuga
+        praesentium ad consectetur, sapiente assumenda minima recusandae a non
+        est quas porro itaque error alias in, dolorem, expedita sit! Veritatis
+        quo nemo dolorum similique optio dicta cupiditate atque molestias.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+        similique impedit quis voluptates accusamus dolorum, praesentium minima
+        culpa laboriosam? Veniam voluptatum, voluptatem reiciendis dignissimos
+        nesciunt voluptatibus temporibus harum obcaecati adipisci! Fuga
+        praesentium ad consectetur, sapiente assumenda minima recusandae a non
+        est quas porro itaque error alias in, dolorem, expedita sit! Veritatis
+        quo nemo dolorum similique optio dicta cupiditate atque molestias.
+      </p>
+      <a href="this">Link</a>
+      <a href="this">Link</a>
+    </div>
+
+    <ul class="myList">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+
+    <article>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, nemo
+      consectetur? Aperiam alias odit velit suscipit! Labore optio eligendi
+      expedita explicabo, aliquam, deleniti vero ex sit recusandae nihil, quasi
+      quis!
+    </article>
+
+    <article>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, nemo
+      consectetur? Aperiam alias odit velit suscipit! Labore optio eligendi
+      expedita explicabo, aliquam, deleniti vero ex sit recusandae nihil, quasi
+      quis!
+    </article>
+
+    <script>
+      let paragraph = document.querySelector("#first"); // find element with id = "first"
+      paragraph.style.border = "2px solid red"; // changing style
+
+      let link = document.querySelector("a[href='this']"); //find first element "a" [with attribute]
+      link.style.borderBottom = "7px solid darkBlue"; // changing style
+
+      let unorderedList = document.querySelector(".myList"); // find first element with class = ".myList"
+      unorderedList.style.border = "2px solid green"; // changing style
+
+      let article = document.querySelector("article"); // find first element "article"
+      article.style.border = "2px dashed"; // changing style
+    </script>
+  </body>
+</html>

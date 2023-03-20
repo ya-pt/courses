@@ -1,0 +1,11 @@
+.ordering-grid{
+    grid-template: repeat(3, 100px)/ 1fr 1fr;
+}
+
+/* изначально у каждого блока order равен 0, блоки располагаются от меньшего order к большему */
+
+.ordering-grid div:nth-child(1){
+    order: 1;
+}
+
+/* поэтому первый блок переместился в конец */

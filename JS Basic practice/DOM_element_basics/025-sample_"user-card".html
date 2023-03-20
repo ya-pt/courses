@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        .user-card{
+            background-color: blanchedalmond;
+            padding: 20px;
+            margin: 10px;
+            border: burlywood;
+            display: inline-block;
+            vertical-align: top;
+            min-height: 300px;
+            min-width: 250px;
+        }
+
+        .user-card p, .user-card ul{
+            padding: 0;
+            margin: 0;
+        }
+
+        .user-card ul{
+            list-style: none;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- пример структуры карточки, описывающей одного пользователя из массива
+
+    <div class="user-card">
+      <h2>FirstName LastName</h2>
+      <p>email: address</p>
+      <p>company: company name</p>
+      <br />
+      <p>friends:</p>
+      <ul>
+        <li>friend1</li>
+        <li>friend2</li>
+      </ul>
+    </div> -->
+
+    <script>
+      // обычно, информацию с данными получают со стороны сервера
+      let users = [
+        {
+          name: {
+            first: "Golden",
+            last: "Clements",
+          },
+          company: "METO",
+          email: "golden.clements@gmail.com",
+          friends: [
+            {
+                id: 0,
+                name: "Fill Longust"
+            },
+            {
+                id: 1,
+                name: "Karl Bonetto"
+            },
+            {
+                id: 3,
+                name: "Zorra Kaban"
+            },
+            {
+                id: 4,
+                name: "Molly Bubba"
+            },
+          ]
+        },
+        {
+          name: {
+            first: "Mario",
+            last: "Sabun",
+          },
+          company: "FARGO",
+          email: "mario.sabun@gmail.com",
+          friends: [
+            {
+                id: 0,
+                name: "Fill Longust"
+            },
+            {
+                id: 1,
+                name: "Karl Bonetto"
+            },
+            {
+                id: 3,
+                name: "Zorra Kaban"
+            },
+          ]
+        },
+        {
+          name: {
+            first: "Mary",
+            last: "Fastovec",
+          },
+          company: "CONSTA",
+          email: "mary.fastovec@gmail.com",
+          friends: [
+            {
+                id: 0,
+                name: "Fill Longust"
+            },
+            {
+                id: 1,
+                name: "Karl Bonetto"
+            },
+            {
+                id: 3,
+                name: "Zorra Kaban"
+            },
+            {
+                id: 4,
+                name: "Molly Bubba"
+            },
+            {
+                id: 5,
+                name: "Sonya Ravul"
+            },
+          ]
+        },
+        {
+          name: {
+            first: "Darian",
+            last: "Bona",
+          },
+          company: "MILANO",
+          email: "darian.bona@gmail.com",
+          friends: [
+            {
+                id: 0,
+                name: "Fill Longust"
+            },
+            {
+                id: 1,
+                name: "Karl Bonetto"
+            },
+          ]
+        },
+      ];
+    
+      function createUserCard(user){
+        let div = document.createElement("div");
+        div.classList.add("user-card");//добавляем класс .user-card для <div>
+
+        //insertAdjacentHTML добавляем текст как HTML разметку
+        div.insertAdjacentHTML("beforeend", `<h2>${user.name.first} ${user.name.last}</h2>`);
+        div.insertAdjacentHTML("beforeend", `<p>email: ${user.email}</p>`);
+        div.insertAdjacentHTML("beforeend", `<p>company: ${user.company}</p>`);
+        div.insertAdjacentHTML("beforeend", `<br />friends:`);
+
+        let ul = document.createElement("ul");
+        for(const friend of user.friends){
+            ul.insertAdjacentHTML("beforeend", `<li>${friend.name}</li>`);
+        }
+
+        div.append(ul);//добавляем готовый элемент <ul> в конец тега <div>
+        return div;//возвращаем готовую карточку
+      }
+
+      users.forEach(user => {
+        let card = createUserCard(user);
+        document.body.append(card);
+      })
+    </script>
+  </body>
+</html>

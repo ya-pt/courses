@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            border: 1px solid purple;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ff33cc;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e495e4;
+        }
+
+        tr > td:nth-child(1){
+            width: 150px;
+        }
+
+        tr > td:nth-child(2){
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="statsTable">
+        <tr>
+            <td>Январь</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>Февраль</td>
+            <td>140</td>
+        </tr>
+        <tr>
+            <td>Март</td>
+            <td>115</td>
+        </tr>
+        <tr>
+            <td>Апрель</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Май</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Июнь</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Июль</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <th id="output"></th>
+        </tr>
+    </table>
+    
+    <script>
+        //Элемент table представляет дополнительные свойства для работы с элементами
+        //rows - коллекция строк таблицы <tr>
+        //cells - коллекция <td> и <th> находящихся в <tr>
+        //rowIndex - порядковый номер строки
+
+        let table = document.querySelector("#statsTable");
+        let output = document.querySelector("#output");
+
+        let sum = 0;
+        let rowLength = table.rows[0].cells.length; 
+        //1> таблица 
+        //2> коллекция строк таблицы(берем ту у которой индекс [0]) 
+        //3> коллекция <td> и <th> находящихся в <tr> 
+        //4> длина
+
+        for(const row of table.rows){
+            let lastCell = row.cells[rowLength - 1];
+            sum += Number(lastCell.textContent);
+        }
+
+        output.textContent = sum;
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h2>JavaScript Arrays</h2>
+    <p>The Array.sort() method sorts the elements of an array.</p>
+    <p id="demo"></p>
+
+    <script>
+
+      //Метод Array.sort() в JavaScript используется для сортировки элементов массива. 
+      //Он изменяет оригинальный массив, сортируя его элементы в порядке возрастания или в алфавитном порядке (если элементы являются строками).
+      
+      //принимает функцию сортировки "function (a, b)", которая принимает два параметра и возвращает "return":
+
+      //ascending/восходящий (a - b)
+      //если a < b, значение меньше 0
+      //если a > b, значение больше 0
+      //если a == b, возвращает 0
+
+
+      //descending/нисходящий (b - a)
+      //если b < a, значение меньше 0
+      //если b > a, значение больше 0
+      //если b == a, возвращает 0
+
+      const points = [40, 100, 1, 5, 25, 10];
+      
+      points.sort(function (a, b) {
+        return a - b;
+      });
+      document.getElementById("demo").innerHTML = points; //1,5,10,25,40,100
+
+      //При вызове метода Array.sort() без аргументов, он сортирует элементы массива в лексикографическом порядке (т.е. в порядке символов), 
+      //используя порядок Unicode.
+
+      //points.sort(); - вернет: 1,10,100,25,40,5
+
+    </script>
+  </body>
+</html>

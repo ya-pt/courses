@@ -1,0 +1,65 @@
+/* когда используем areas то repeat не работает, для удобства лучше писать один под одним */
+
+.grid-areas{
+    grid-template: repeat(3,100px)/1fr 2fr;
+    grid-template-areas: 
+    "header header"
+    "content content"
+    "left-side right-side"
+    "article article"
+    "footer footer";
+}
+
+.grid-areas div:nth-child(1){
+    grid-area: header;
+}
+
+.grid-areas div:nth-child(2){
+    grid-area: content;
+}
+
+.grid-areas div:nth-child(3){
+    grid-area: left-side;
+}
+
+.grid-areas div:nth-child(4){
+    grid-area: right-side;
+}
+
+.grid-areas div:nth-child(5){
+    grid-area: article;
+}
+
+.grid-areas div:nth-child(6){
+    grid-area: footer;
+}
+
+/* меняя расположение значений grid-area, блоки тоже будут меняться местами */
+
+/* используя . (точку) мы можем пропускать блоки !!! */
+
+/* например: */
+
+.grid-areas{
+    grid-template: repeat(3,100px)/1fr 2fr;
+    grid-template-areas: 
+    "header ."
+    "content content"
+    "left-side right-side"
+    "article article"
+    "footer footer";
+}
+
+/* а если мы хотим объединить не блоки а строки, то одинаковые имена должны распологаться по вертикали */
+
+.grid-areas{
+    grid-template: repeat(3,100px)/1fr 2fr;
+    grid-template-areas: 
+    "header ."
+    "header content"
+    "left-side right-side"
+    "left-side article"
+    "left-side footer";
+}
+
+/* создавая при этом фигуры, только такие, как квадрат или прямоугольник */

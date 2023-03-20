@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //т.к Метод Array.sort() изменяет оригинальный массив, могут возникать ошибки:
+
+      const unsorted = [3, 1, 4, 2]; // [3, 1, 4, 2]
+      const ascending = unsorted.sort((a, b) => a - b).map(d => d * 10); // [10, 20, 30, 40]
+      const descending = ascending.sort((a, b) => b - a).map(d => d * 10); // [400, 300, 200, 100]
+
+      console.log("unsorted", unsorted); // [1, 2, 3, 4] - т.к метод .sort изменил исходный массив
+      console.log("ascending", ascending); // [40, 30, 20, 10] - т.к метод .sort изменил исходный массив
+      console.log("descending", descending); // [400, 300, 200, 100] +
+
+
+
+      console.log("_______________________________")
+
+      //чтобы в последствии не изменять данные, нужно создать копию исходного Array
+      const unsorted_1 = [3, 1, 4, 2]; // [3, 1, 4, 2]
+      const ascending_1 = [...unsorted_1].sort((a, b) => a - b).map(d => d * 10); //[10, 20, 30, 40]
+      const descending_1 = [...ascending_1].sort((a, b) => b - a).map(d => d * 10); // [400, 300, 200, 100]
+
+      console.log("unsorted", unsorted_1); // [3, 1, 4, 2] +
+      console.log("ascending", ascending_1); // [10, 20, 30, 40] +
+      console.log("descending", descending_1); // [400, 300, 200, 100] +
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <p>system users:</p>
+    <ul id="userList"></ul>
+
+    <script>
+      // обычно, информацию с данными получают со стороны сервера
+      let users = [
+        {
+          name: {
+            first: "Golden",
+            last: "Clements",
+          },
+          email: "golden.clements@gmail.com",
+        },
+        {
+          name: {
+            first: "Mario",
+            last: "Sabun",
+          },
+          email: "mario.sabun@gmail.com",
+        },
+        {
+          name: {
+            first: "Mary",
+            last: "Fastovec",
+          },
+          email: "mary.fastovec@gmail.com",
+        },
+        {
+          name: {
+            first: "Darian",
+            last: "Bona",
+          },
+          email: "darian.bona@gmail.com",
+        },
+      ];
+
+      let list = document.querySelector("#userList");
+
+      //option 1
+
+      for (let i = 0; i < users.length; i++) {
+        const currentUser = users[i]; //текущий пользователь
+
+        let fullName = `${currentUser.name.first} ${currentUser.name.last}`; //имя и фамилия
+        let liContent = `${fullName} - (${currentUser.email})`; //имя, фамилия и email
+
+        let li = document.createElement("li"); //создаем элемент
+        li.textContent = liContent;
+        list.append(li); //добавляем наш li как последний дочерний элемент
+      }
+
+      //...
+      list.insertAdjacentHTML(
+        "beforeend",
+        "<p>___________________________________</p>"
+      );
+
+      //option 2
+
+      users.forEach((user) => {
+        let content = `${user.name.first} ${user.name.last} - (${user.email})`;
+        createListItem(content); //передаем значение в функцию
+      });
+
+      function createListItem(content) {
+        let li = document.createElement("li");
+        li.textContent = content;
+        list.append(li);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        article{
+            border: 1px solid black;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <article title="1">
+        <h1 title="2">Article title</h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </article>
+    
+    <script>
+        //clone nodes
+
+        // node.cloneNode(true/false) - создание глубокого/поверхностного копирования узла, на котором был произведен вызов
+
+        let articleNode = document.querySelector("article");
+        let deepCopy = articleNode.cloneNode(true); // глубокое копирование
+        // <article>
+        // <h1>Article title</h1>
+        // <p>Lorem ipsum dolor sit amet.</p>
+        // </article>
+
+        let shallowCopy = articleNode.cloneNode(false); //поверхностное копирование
+        // <article></article>
+
+        document.body.append(shallowCopy); //поверхностное (attribute title only for <article>)
+        document.body.append(deepCopy); //глубокое (attribute title for <article> and <h1>)
+    </script>
+</body>
+</html>

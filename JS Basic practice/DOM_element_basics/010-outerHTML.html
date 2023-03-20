@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div {
+        background-color: lightblue;
+        padding: 8px;
+        margin: 8px;
+      }
+
+      p {
+        background-color: coral;
+        padding: 8px;
+        margin: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p id="test">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam minima
+      praesentium dolores.
+    </p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime aliquid
+      ipsam quibusdam?
+    </p>
+
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
+      temporibus doloremque atque eligendi? Ab, perspiciatis.
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora in
+      repudiandae ab autem unde earum.
+    </div>
+
+    <script>
+      let node = document.querySelector("#test");
+      node.outerHTML = "<div> Hello world </div>"; // will completely replace this element
+    </script>
+  </body>
+</html>

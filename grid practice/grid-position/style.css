@@ -1,0 +1,75 @@
+/* для родительского блока задаем position relative */
+
+.position-grid{
+    grid-template: repeat(2, auto)/ repeat(2, auto);
+    position: relative;
+}
+
+/* чтобы сделать блок на всю ширину,(в место width 100%) нужно добавить left0, right0 */
+
+/* при  grid column или row блок будет уже не на всю ширину, а заключен в указанных значениях  */
+
+.position-grid div:nth-child(1){
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+/* еще один пример */
+
+.position-relative{
+    position: relative;
+    grid-template: repeat(2, 1fr 1fr)/ 1fr 300px;
+}
+
+/* 80% относительно себя */
+
+.position-relative div:nth-child(2){
+    position: relative;
+    top: 80%;
+}
+
+/* еще один пример */
+
+.position-fixed{
+    grid-template: auto auto/ 1fr 1fr;
+    height: 300px;
+}
+
+.position-fixed div:nth-child(1){
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+/* еще один пример */
+
+.grid-container{
+    height: 50vh;
+    display: grid;
+    grid-template: 80px 1fr 80px/ 1fr;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+header{
+    grid-area: header;
+    position: sticky;
+    top: 0;
+}
+
+main{
+    grid-area: main;
+}
+
+footer{
+    grid-area: footer;
+    position: sticky;
+    bottom: 0;
+}

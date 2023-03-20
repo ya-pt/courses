@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- ex -->
+
+    <!-- id="container" используем в качестве "якоря" для методов вставки -->
+    <div id="container"> 
+        <p>Elem 1</p>
+        <p>Elem 2</p>
+        <p>Elem 3</p>
+        <p>Elem 4</p>
+        <p>Elem 5</p>
+    </div>
+
+    <script>
+        // Создание узлов:
+
+        // document.createElement(тег) - создание нового элемента, указанного в параметрах
+        // document.createTextNode(текст) - создание текстового узла
+
+        // !!! Для того, чтобы созданные элементы стали видимыми, их необходимо добавить в документ
+        // Методы вставки:
+        // .append(new node); - последний дочерний элемент
+        // .prepend(new node); - первый дочерний элемент
+        // .before(new node); - перед 
+        // .after(new node); - после
+        // .replaceWith(new node); - этот элемент заменить
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="block">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium,
+      fugit delectus quasi exercitationem ipsum earum iste quas doloribus velit
+      voluptates, labore consequatur tempore eius vel?
+      <div class="buttons-panel">
+        <button>Cansel</button>
+        <button>Close</button>
+      </div>
+    </div>
+
+    <div class="block">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium,
+      fugit delectus quasi exercitationem ipsum earum iste quas doloribus velit
+      voluptates, labore consequatur tempore eius vel?
+      <div class="buttons-panel">
+        <button>Cansel</button>
+        <button id="closeBtn">Close</button>
+      </div>
+    </div>
+
+    <div class="block">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium,
+      fugit delectus quasi exercitationem ipsum earum iste quas doloribus velit
+      voluptates, labore consequatur tempore eius vel?
+      <div class="buttons-panel">
+        <button>Cansel</button>
+        <button>Close</button>
+      </div>
+    </div>
+
+    <!-- "closest" - это метод JavaScript, который позволяет найти ближайший родительский элемент, 
+    соответствующий заданному селектору css. Если элемент не найден, метод возвращает null. -->
+
+    <script>
+      let btn = document.querySelector("#closeBtn");
+      let closestBlock = btn.closest(".block");
+      closestBlock.style.border = "2px solid red";
+
+      // shorter version
+      let block = document.querySelector("#closeBtn").closest(".block");
+      block.style.border = "2px solid red";
+
+      //так как для элемента #closeBtn нет родительского элемента с классом foo - результат вызова closest null
+      let element  = document.querySelector("#closeBtn").closest(".foo");
+      console.log(element);
+    </script>
+  </body>
+</html>

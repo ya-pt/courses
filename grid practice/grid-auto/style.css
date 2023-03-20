@@ -1,0 +1,28 @@
+.imp-vs-ex{
+    grid-gap: 30px;
+    grid-template-columns: 100px;
+}
+
+.imp-vs-ex div:nth-child(1){
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+/* с этими свойствами наш grid полностью изменился, это называется неявный grid */
+
+/* enother example */
+
+.imp-vs-ex2{
+    grid-gap: 30px;
+    grid-template-columns: 100px;
+    grid-template-rows: 150px 100px;
+    grid-auto-columns: 100px;
+}
+
+/* для того чтобы контролировать построение implicit grid, есть такое правило, как grid auto columns(rows), 
+где мы можем задать размер implicit grid, появилась возможность задавать несколько значений */
+
+.imp-vs-ex2 div:nth-child(1){
+    grid-column-start: 2;
+    grid-column-end: span 2;
+}

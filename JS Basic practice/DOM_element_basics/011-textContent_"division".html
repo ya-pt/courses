@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Результат: <span id="output"></span></div>
+
+    <script>
+      //выводим результат деления или сообщение(при делении на ноль)
+      let x = +prompt("enter first num");
+      let y = +prompt("enter second num");
+      let result;
+      let outputDiv = document.querySelector("#output");
+
+      if (y != 0) {
+        result = x / y;
+        outputDiv.textContent = `<b>${result}</b>`; //Результат: <b>${result}</b>
+      } else {
+        outputDiv.textContent = `<b style = "color:red"> division by zero </b>`; //Результат: <b style = "color:red"> division by zero </b>
+      }
+
+      // better to use innerHTML (instead textContent), if the values are preprocessing
+    </script>
+  </body>
+</html>

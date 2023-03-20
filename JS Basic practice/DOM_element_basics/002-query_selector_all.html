@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <!-- querySelectorAll - это метод JavaScript, 
+  который позволяет получить все элементы в документе - коллекцию(массив), которые соответствуют заданному CSS-селектору. -->
+
+  <!-- обычно используется вместе с методом document для доступа к элементам в документе. -->
+
+  <body>
+    <div>
+        <p id="first">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+          similique impedit quis voluptates accusamus dolorum, praesentium minima
+          culpa laboriosam? Veniam voluptatum, voluptatem reiciendis dignissimos
+          nesciunt voluptatibus temporibus harum obcaecati adipisci! Fuga
+          praesentium ad consectetur, sapiente assumenda minima recusandae a non
+          est quas porro itaque error alias in, dolorem, expedita sit! Veritatis
+          quo nemo dolorum similique optio dicta cupiditate atque molestias.
+        </p>
+  
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+          similique impedit quis voluptates accusamus dolorum, praesentium minima
+          culpa laboriosam? Veniam voluptatum, voluptatem reiciendis dignissimos
+          nesciunt voluptatibus temporibus harum obcaecati adipisci! Fuga
+          praesentium ad consectetur, sapiente assumenda minima recusandae a non
+          est quas porro itaque error alias in, dolorem, expedita sit! Veritatis
+          quo nemo dolorum similique optio dicta cupiditate atque molestias.
+        </p>
+        <a href="this">Link</a>
+        <a href="this">Link</a>
+      </div>
+  
+      <ul id="myList_1">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li class="selected">3</li>
+        <li class="selected">4</li>
+        <li>5</li>
+      </ul>
+  
+      <article>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, nemo
+        consectetur? Aperiam alias odit velit suscipit! Labore optio eligendi
+        expedita explicabo, aliquam, deleniti vero ex sit recusandae nihil, quasi
+        quis!
+      </article>
+
+      <ul class="myList_2">
+        <li>1</li>
+        <li>2</li>
+        <li class="selected">3</li>
+        <li class="selected">4</li>
+        <li>5</li>
+      </ul>
+
+      <script>
+        let listItems = document.querySelectorAll("li"); //getting all li elements
+        for(const item of listItems){
+            item.style.margin = "2px";
+            item.style.border = "1px solid red";
+        }
+
+        let idListItem = document.querySelector("#myList_1"); //find element with id myList_1
+        let selected = idListItem.querySelectorAll(".selected"); //find all elements with class selected
+        for(const item of selected){
+            item.style.color = "violet";
+        }
+
+        // or shorter
+
+        let selected2 = document.querySelectorAll(".myList_2 .selected");
+        for(const item of selected2){
+            item.style.color = "orange";
+        }
+      </script>
+  </body>
+</html>

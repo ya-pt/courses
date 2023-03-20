@@ -1,0 +1,21 @@
+/* мы хотим чтобы блок повторялся 2 раза со значением auto 100px auto  */
+
+/* .repeat-layout{
+    grid-template-columns: repeat(2, auto 100px auto);
+} */
+
+/* перед и после repeat могут быть другие значения колонок */
+/* так же можно задавать размеры строкам */
+
+.repeat-layout{
+    grid-template-columns: 400px repeat(2, 100px) auto ;
+    grid-template-rows: repeat(1, 100px 50px);
+}
+
+/* чтобы сократить запись можно записать так.. */
+
+.repeat-layout{
+    grid-template: repeat(1, 100px 50px)/400px repeat(2, 100px) auto;
+}
+
+/* сперва rows потом columns */

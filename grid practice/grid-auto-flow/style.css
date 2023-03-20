@@ -1,0 +1,8 @@
+/* !!!по умолчанию все новые блоки попадали в ряды grid и опускались вниз, 
+auto flow дает возможность изменить поведение значением column */
+
+.auto-flow-grid{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-auto-flow: column;
+}

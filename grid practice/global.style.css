@@ -1,0 +1,38 @@
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.grey{
+    background-color: grey;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.yellowgreen{
+    background-color: yellowgreen;
+}
+
+.container{
+    width: 50%;
+    margin: 10px auto;
+    border: 2px solid plum;
+}
+
+.block{
+    padding: 15px;
+    color: white;  
+}
+
+.d-grid{
+    display: grid;
+}

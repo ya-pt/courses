@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img{
+            width: 15px;
+        }
+
+        table{
+            width: 20%;
+            text-align: center;
+            margin: 5% auto;
+        }
+    </style>
+</head>
+<body>
+    <table id="statsTable">
+        <tr>
+            <th>Name</th>
+            <th>Result</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>HTML 5</td>
+            <td>980</td>
+            <td><img src="img/img_ok.png" alt="Exam"></td>
+        </tr>
+        <tr>
+            <td>JS Starter</td>
+            <td>600</td>
+            <td><img src="img/img_ok.png" alt="Exam"></td>
+        </tr>
+        <tr>
+            <td>JS Essential</td>
+            <td>730</td>
+            <td><img src="img/img_ok.png" alt="Exam"></td>
+        </tr>
+        <tr>
+            <td>TypeScrips</td>
+            <td>650</td>
+            <td><img src="img/img_ok.png" alt="Exam"></td>
+        </tr>
+        <tr>
+            <td>Angular</td>
+            <td>700</td>
+            <td><img src="img/img_ok.png" alt="Exam"></td>
+        </tr>
+    </table>
+    
+    <script>
+        //получаем каждый второй <td> с оценкой, расположенный в таблице с id statsTable
+            let examsScoreColumn = document.querySelectorAll("#statsTable td:nth-child(2)");
+
+            for(const td of examsScoreColumn){
+                //получаем следующий сестринский элемент от <td>, а в нем первый дочерний элемент <img>
+                let passedExamIcon = td.nextElementSibling.firstElementChild; //получили <img> в каждой итерации
+
+                if(td.textContent >= 700){
+                    passedExamIcon.hidden = false;
+                }else{
+                    passedExamIcon.hidden = true;
+                }
+
+                //shorter note without if/else
+                passedExamIcon.hidden = td.textContent < 700; //if less than 700 (true) - hidden
+                //textContent is "string" becomes "number" because "<" operator is used
+            }
+    </script>
+</body>
+</html>

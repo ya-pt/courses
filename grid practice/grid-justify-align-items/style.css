@@ -1,0 +1,14 @@
+.grid-justify-items{
+    grid-template: 1fr 1fr/ 1fr 1fr;
+    justify-items: center;
+}
+
+.grid-align-items{
+    grid-template: 100px 100px/100px 100px;
+    align-items: center;
+    justify-items: start;
+}
+
+/* правила можно комбинировать */
+
+/* items это элементы внутри контейнера  */

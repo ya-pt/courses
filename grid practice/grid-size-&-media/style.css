@@ -1,0 +1,189 @@
+.grid-width{
+    grid-template-columns: 300px 300px;
+}
+
+.grid-width div{
+    width: 100px;
+}
+
+/* enother example */
+/* grid overflow */
+
+.grid-min-size{
+    grid-template-columns: 300px 100px;
+    grid-template-rows: 150px;
+}
+
+.grid-min-size div{
+    min-width: 400px;
+}
+
+/* два блока переполнены и первый ушел за второй */
+
+/* enother example */
+
+.grid-max-size{
+    grid-template-columns: 200px;
+    grid-template-rows: 200px;
+}
+
+.grid-max-size div{
+    max-width: 400px;
+    max-height: 100px;
+    box-sizing: border-box;
+}
+
+/* лучше в grid использовать max */
+
+/* enother example */
+
+.grid-padding-size{
+    grid-template-columns: 400px;
+    grid-template-rows: 150px;
+}
+
+.grid-padding-size div{
+    padding-left: 400px;
+    padding-right: 400px;
+}
+
+/* enother example */
+
+.margin-grid{
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 70px 1fr;
+}
+
+.margin-grid div:nth-child(1){
+    margin: 40px;
+}
+
+.margin-grid div:nth-child(3){
+    margin: 40px;
+}
+
+/* у первой ячейки фиксированное значение, поэтому блок ужимается не пропорционально, а 3 ячейка адаптивная(fr) */
+
+/* enother example */
+
+.grid-auto-margin{
+    grid-template-columns: 1fr;
+}
+
+.grid-auto-margin div{
+    margin: 0 auto;
+}
+
+/* !!! в grid свойство (margin: 0 auto;) ведет себя иначе и является плохой практикой */
+
+/* enother example */
+/* Desktop First Responsive Design Адаптивный дизайн*/
+
+.responsive-grid{
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: 
+    "logo header header header header-option header-option"
+    "nav content content content content content"
+    "footer footer footer footer footer footer";
+    grid-template-rows: 100px 1fr 100px;
+}
+
+.responsive-grid div:nth-child(1){
+    grid-area: logo;
+}
+
+.responsive-grid div:nth-child(2){
+    grid-area: header;
+}
+
+.responsive-grid div:nth-child(3){
+    grid-area: header-option;
+}
+
+.responsive-grid div:nth-child(4){
+    grid-area: nav;
+}
+
+.responsive-grid div:nth-child(5){
+    grid-area: content;
+}
+
+.responsive-grid div:nth-child(6){
+    grid-area: footer;
+}
+
+.container{
+    width: 80%;
+}
+
+@media(max-width:768px){
+    .responsive-grid{
+        grid-template-areas: 
+        "logo header-option header-option header header header "
+        "nav nav nav nav nav nav"
+        "content content content content content content"
+        "footer footer footer footer footer footer";
+        grid-template-rows: 80px auto auto 80px;
+    } 
+}
+
+/* enother example */
+/* Mobile First */
+
+.responsive-grid2{
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: 
+    "logo header-option header-option header header header "
+    "nav nav nav nav nav nav"
+    "content content content content content content"
+    "footer footer footer footer footer footer";
+    grid-template-rows: 100px auto auto 100px;
+}
+
+.responsive-grid2 div:nth-child(1){
+    grid-area: logo;
+}
+
+.responsive-grid2 div:nth-child(2){
+    grid-area: header;
+}
+
+.responsive-grid2 div:nth-child(3){
+    grid-area: header-option;
+}
+
+.responsive-grid2 div:nth-child(4){
+    grid-area: nav;
+}
+
+.responsive-grid2 div:nth-child(5){
+    grid-area: content;
+}
+
+.responsive-grid2 div:nth-child(6){
+    grid-area: footer;
+}
+
+@media(min-width:420px){
+    .responsive-grid2{
+        grid-template-rows: 100px 1fr 100px;
+        grid-template-areas: 
+        "logo header header header header-option header-option"
+        "nav content content content content content"
+        "footer footer footer footer footer footer";
+    } 
+}
+
+@media(min-width:768px){
+    .responsive-grid2{
+        grid-template-rows: 200px auto 200px;
+        grid-template-areas: 
+        "logo header header header header-option header-option"
+        "nav content content content content content"
+        "footer footer footer footer footer footer";
+    } 
+}
+
+/* !!! чтобы избежать ошибок, пиши @media в конце всех правил */
+
+/* enother example */

@@ -1,0 +1,21 @@
+/* создаем названия для линий колонок, первой и последней */
+
+/* .line-name{
+    grid-template-columns: [start-column] 1fr 2fr 1fr [end-column];
+}
+
+.line-name div:nth-child(1){
+    grid-column-start: start-column;
+    grid-column-end: end-column;
+} */
+
+/* так же можно указывать промежуточные линии, например.. */
+
+.line-name{
+    grid-template-columns: [start-column] 1fr 2fr[logo-block] 1fr [end-column];
+}
+
+.line-name div:nth-child(1){
+    grid-column-start: start-column;
+    grid-column-end: logo-block;
+}

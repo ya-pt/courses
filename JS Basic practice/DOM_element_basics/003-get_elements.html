@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p id="first">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni natus
+        doloribus sequi eligendi fugiat tempora labore voluptatem asperiores
+        consequatur necessitatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci,
+        repudiandae a autem modi culpa error.
+      </p>
+
+      <a href="this">link</a>
+      <a href="this">link</a>
+    </div>
+
+    <input type="radio" name="answer" value="off"/> yes
+    <input type="radio" name="answer" value="on" checked/> no
+
+    <ul class="myList">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+
+    <article>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, vitae
+      illum quidem delectus non iusto, hic tenetur mollitia eaque animi tempore
+      unde!
+    </article>
+
+    <script>
+        //устаревшие методы, которые могут встречаться в старом коде 
+
+
+        //поиск по id (возвращается один элемент DOM)
+        let paragraph = document.getElementById("first");
+        paragraph.style.border = "2px solid red";
+
+        //поиск по атрибуту name (возвращается коллекция элементов DOM)
+        let radioButtons = document.getElementByName("answer");
+
+        //поиск по имени тега (возвращается коллекция элементов DOM)
+        let listItems = document.getElementByTagName("article");
+
+        //поиск по css классу (возвращается коллекция элементов DOM)
+        let lists = document.getElementsByClassName("myList");
+    </script>
+  </body>
+</html>

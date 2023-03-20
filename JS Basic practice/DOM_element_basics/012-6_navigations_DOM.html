@@ -1,0 +1,46 @@
+<!-- *Все эти элементы выполняют навигацию только по узлам элементам -->
+
+<!-- from #elem -->
+1. children - предоставляет доступ к дочерним элементам 
+2. firstElementChild - первый элемент в списке дочерних элементов 
+3. lastElementChild - последний элемент в списке дочерних элементов 
+4. nextElementSibling - следующий сестринский элемент в разметке 
+5. previousElementSibling - предыдущий сестринский элемент в разметке 
+6. parentElement - родительский элемент
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      parentElement
+      <a href="">previousElementSibling</a>
+      <ul id="elem">
+        <li>children firstElementChild</li>
+        <li>children</li>
+        <li>children lastElementChild</li>
+      </ul>
+      <p>nextElementSibling</p>
+    </div>
+
+    <script>
+      let e = document.querySelector("#elem");
+
+      e.parentElement.style.border = "1px solid red";
+      e.nextElementSibling.style.border = "1px solid green";
+      e.previousElementSibling.style.border = "1px solid blue";
+
+      for(const node of e.children){
+        node.style.border = "1px solid orange";
+      }
+
+      console.log(e.childNodes); //всего узлов 7, так как кроме элементов, в разметке есть переносы на новую строку
+
+    </script>
+  </body>
+</html>

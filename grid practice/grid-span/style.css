@@ -1,0 +1,22 @@
+/* как объеденить start и end в единое правило??? */
+
+.span-layout{
+    grid-template-columns: [start-column] 1fr 2fr[logo-block] 1fr [end-column];
+}
+
+/* правило устанавливает начало и конец объединения линий и столбцов */
+
+.span-layout div:nth-child(1){
+    grid-column: start-column/logo-block;
+    grid-row: 1/3;
+}
+
+/* span дает возможность не привязываться к линиям, он сразу дает понять, сколько в сумме (строк или колонок) мы хотим занять  */
+/* например: */
+
+/* со 2-ой строки объеденим 3-и строки */
+
+.span-layout div:nth-child(1){
+    grid-column: start-column/logo-block;
+    grid-row: 2/span 3;
+}
