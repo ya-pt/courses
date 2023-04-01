@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Имена атрибутов могут начинаться с префикса 
+    "data-", 
+    чтобы указать, что это пользовательские данные, не определенные в спецификации HTML.  -->
+    
+    <div data-name="my Div" data-custom-value="123"></div>
+
+    <script>
+        // В JavaScript есть объект 
+        // dataset, 
+        // который предоставляет доступ к пользовательским атрибутам 
+        // (атрибутам, начинающимся с префикса "data-") элемента DOM.
+        // Свойства объекта dataset соответствуют именам пользовательских атрибутов без префикса "data-".
+
+        let divElem = document.querySelector("div");
+
+        console.log(divElem.dataset.name); //чтение значения атрибута "data-name"
+        console.log(divElem.dataset.customValue); //чтение значения атрибута "data-custom-value"
+        // значение атрибута, которое состоит из нескольких слов - "customValue" использует camelCase вместо "-"
+
+        divElem.dataset.name = "new"; //смена значений атрибута "data-name"
+        console.log(divElem.dataset.name);
+    </script>
+</body>
+</html>
