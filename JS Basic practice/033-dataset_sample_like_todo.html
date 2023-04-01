@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* все элементы с классом task и атрибутом data-status="completed" */
+      .task[data-status="completed"] {
+        background-color: green;
+        color: white;
+      }
+
+      .task[data-status="completed"] p {
+        text-decoration: line-through;
+      }
+      /* перечеркнутый текст */
+
+      .task[data-status="expired"] {
+        background-color: red;
+        color: white;
+      }
+
+
+
+
+      /* common style */
+      .task{
+        border: 1px solid grey;
+        padding: 3px 8px;
+        margin: 2px 10px;
+        max-width: 400px;
+      }
+
+      .task p{
+        display: inline-block;
+        min-width: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="task">
+      <input type="checkbox" />
+      <p>watering flowers</p>
+      <span data-due-date="17.02.2023"></span>
+    </div>
+
+    <div class="task">
+      <input type="checkbox" checked />
+      <p>pour water for pets</p>
+      <span data-due-date="12.06.2023"></span>
+    </div>
+
+    <div class="task">
+      <input type="checkbox" />
+      <p>feed the parrot</p>
+      <span data-due-date="13.08.2023"></span>
+    </div>
+
+    <div class="task">
+      <input type="checkbox" />
+      <p>cook dinner</p>
+      <span data-due-date="21.09.2023"></span>
+    </div>
+
+    <script>
+        //выводит значение атрибута data-due-date в элемент span, как обычный текст
+        function setDates(){
+            let dueDateSpans = document.querySelectorAll("[data-due-date]");
+
+            for (span of dueDateSpans){
+                span.textContent = span.dataset.dueDate;
+            }
+        }
+
+        function setStatuses(){
+            let tasks = document.querySelectorAll(".task");
+
+            for(task of tasks){
+                // если checkbox отмечен, то устанавливаем для div атрибут data-status = "completed"
+                if(task.querySelector("input").checked){
+                    task.dataset.status = "completed";
+                    continue;
+                }
+
+                let dueDateAttr = task.querySelector("span").dataset.dueDate; //чтение значения атрибута data-due-date
+                let dueDate = getDateFromString(dueDateAttr); //создали функцию, которая возвращает объект Date
+                let today = new Date(); //создание объекта, описывающего текущую дату
+
+                if(today > dueDate){
+                    task.dataset.status = "expired"
+                }
+            }
+        }
+
+        function getDateFromString(input){
+            let parts = input.split("."); //получаем массив parts, разделенный по "."
+            return new Date(parts[2], parts[1]-1, parts[0]);
+            // порядок - new Date(year, month, day, hour, minute, second, millisecond)
+            // parts[1]-1 т.к месяцы в объекте Date начинаются с 0, т.е. январь имеет индекс 0, а декабрь - 11.
+        }
+
+        setDates();
+        setStatuses();
+    </script>
+  </body>
+</html>
