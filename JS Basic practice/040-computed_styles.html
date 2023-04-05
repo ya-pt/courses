@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+        margin-bottom: 10px;
+      }
+
+      /* псевдо класс selection отвечает за цвет выделяемого текста */
+      div::selection{
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- getComputedStyles - вычисленные стили
+    если мы хотим получит доступ к стилям элемента определенных браузером,
+    который может быть задан (не только с помощью inline styles) -->
+
+    <div>DIV</div>
+
+    <script>
+      // getComputedStyle(tag, pseudo_element);
+      //может принимать два параметра
+
+      // ex1 inline styles
+      let divElem = document.querySelector("div");
+      console.log(`width(inline) = ${divElem.style.width}`); //пусто т.к берет параметр из inline styles
+
+      // ex2 computed styles
+      let div_comp_styles = getComputedStyle(divElem, null);
+      console.log(`width(computed) = ${div_comp_styles.width}`); //100px т.к вычисленные стили
+
+      // ex3 with pseudo element
+      let div_pseudo_elem = getComputedStyle(divElem, ":selection"); //хранит значения свойств псевдо элемента
+      console.log(`background highlighted text - ${div_pseudo_elem.background}`);
+    </script>
+  </body>
+</html>
