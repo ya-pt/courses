@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button id="myBtn1" onclick="showMessage()">Click1</button>
+    <!-- самый простой способ, но не самый удачный -->
+
+    <button id="myBtn2">Click2</button>
+    <button id="myBtn3">Click3</button>
+
+    <script>
+      function showMessage() {
+        alert("Hello world");
+      }
+
+      // myBtn2
+      let btn2 = document.querySelector("#myBtn2");
+      btn2.onclick = showMessage; //более правильный,
+      //но есть существенный недостаток - у свойства "onclick", может быть только одно значение,
+      //последующее добавление значений, будет переписывать предыдущее значение
+
+      // myBtn3
+      let btn3 = document.querySelector("#myBtn3");
+      btn3.addEventListener("click", showMessage); //самый подходящий вариант
+    </script>
+  </body>
+</html>
