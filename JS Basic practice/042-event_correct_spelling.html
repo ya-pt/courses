@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="my-div">
+        Click me
+    </div>
+
+    <script>
+        let div = document.querySelector("#my-div");
+
+        //если при установке обработчика после имени указать () - это запустит функцию и в качестве значения,
+        //свойство onclick получит результат работы функции, а не саму функцию.
+
+        //частая ошибка начинающих
+
+        //функция запускается еще до события onclick
+        div.onclick = showMessage();//в качестве обработчика устанавливается значение undefined, т.к функция ничего не возвращает
+
+        function showMessage(){
+            alert("сработал обработчик события 1, установленный через свойство");
+        }
+
+        // более корректно будет записать с помощью анонимной функции
+        div.onclick = function(){
+            alert("сработал обработчик события 2, установленный через свойство"); 
+        }
+    </script>
+</body>
+</html>
