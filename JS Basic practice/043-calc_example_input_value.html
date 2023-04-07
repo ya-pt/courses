@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>operand 1: <input id="input1" type="text"></div>
+    <div>operand 2: <input id="input2" type="text"></div>
+
+    <button id="add-btn">+</button>
+    <button id="rem-btn">-</button>
+    <button id="mul-btn">*</button>
+    <button id="div-btn">/</button>
+
+    <div id="result">result: </div>
+
+    <script>
+        //inputs
+        let input1 = document.querySelector("#input1");
+        let input2 = document.querySelector("#input2");
+
+        //buttons
+        let addBtn = document.querySelector("#add-btn");
+        let remBtn = document.querySelector("#rem-btn");
+        let mulBtn = document.querySelector("#mul-btn");
+        let divBtn = document.querySelector("#div-btn");
+
+        //result
+        let result = document.querySelector("#result");
+
+
+        //functions
+        function add(){
+            //для избегания конкатенации преобразовываем значение поля ввода в число
+            //для получения введенного значения используется свойство value
+            result.textContent += (Number(input1.value) + Number(input2.value) + ";");
+        }
+        function rem(){
+            result.textContent += (input1.value - input2.value) + ";";
+        }
+        function mul(){
+            result.textContent += (input1.value * input2.value) + ";";
+        }
+        function div(){
+            result.textContent += (input1.value / input2.value) + ";";
+        }
+
+        //установка обработчиков на событие click
+        addBtn.onclick = add;
+        remBtn.onclick = rem;
+        mulBtn.onclick = mul;
+        divBtn.onclick = div;
+    </script>
+</body>
+</html>
