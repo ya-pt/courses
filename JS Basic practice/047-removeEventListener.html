@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="testBtn">Click me!</button>
+    <button id="removeHandlerBtn">remove event listener</button>
+
+    <script>
+        let testBtn = document.querySelector("#testBtn");
+        let removeHandlerBtn = document.querySelector("#removeHandlerBtn");
+
+        function handler(){
+            alert("обработчик событий");
+        }
+
+        testBtn.addEventListener("click", handler);//устанавливаем обработчик на событие click
+
+        removeHandlerBtn.addEventListener("click", function(){ //при click на removeHandlerBtn, удаляет событие на testBtn
+            testBtn.removeEventListener("click", handler);//удаляем обработчик на событие click
+        });
+    </script>
+</body>
+</html>
