@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <button data-url="1">Кнопка 1</button>
-    <button data-url="2">Кнопка 2</button>
-    <button data-url="3">Кнопка 3</button>
+    <button data-url="ссылка для скачивания 1">Кнопка 1</button>
+    <button data-url="ссылка для скачивания 2">Кнопка 2</button>
+    <button data-url="ссылка для скачивания 3">Кнопка 3</button>
 
     <script>
         //находим все кнопки
@@ -21,7 +21,7 @@
         });
 
         function clickHandler(){
-            alert(this.textContent); //this - указывает на ту кнопку, для которой обрабатывается, в данный момент, событие
+            alert(this.dataset.url); //this - указывает на ту кнопку, для которой обрабатывается, в данный момент, событие
         }
     </script>
 </body>
