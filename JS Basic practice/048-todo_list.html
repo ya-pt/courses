@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .task{
+            display: flex;
+            border: 1px solid gray;
+            width: 400px;
+            min-height: 50px;
+        }
+
+        .input-panel{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-panel">
+        <input type="text" id="task-name-input">
+        <button id="add-task-btn">добавить задачу</button>
+    </div>
+
+    <div class="task-list">
+        <div class="task">
+            <input type="checkbox">
+            <p>task 1</p>
+        </div>
+        <div class="task">
+            <input type="checkbox">
+            <p>task 2</p>
+        </div>
+        <div class="task">
+            <input type="checkbox">
+            <p>task 3</p>
+        </div>
+        <div class="task">
+            <input type="checkbox">
+            <p>task 4</p>
+        </div>
+    </div>
+
+    <script>
+        //инициализируем переменные с которыми будем работать
+        let taskNameInput = document.querySelector("#task-name-input");
+        let addTaskButton = document.querySelector("#add-task-btn");
+        let taskList = document.querySelector(".task-list");
+
+        addTaskButton.addEventListener("click", addTaskHandler);
+
+        //создает структуру для добавления новой задачи
+        function createTask(text){
+            let div = document.createElement("div");
+            div.classList.add("task");
+
+            let input = document.createElement("input");
+            input.type = "checkbox";
+
+            let p = document.createElement("p");
+            p.innerText = text;
+
+            div.append(input);
+            div.append(p);
+
+            return div;
+        }
+
+        //добавляем введенную пользователем задачу в структуру
+        //добавляем на страницу пользователя
+        function addTaskHandler(){
+            let newTask = createTask(taskNameInput.value);
+            taskList.append(newTask);
+        }
+    </script>
+</body>
+</html>
