@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .completed{
+            background-color: green;
+            color: white;
+        }
+
+        .completed p{
+            text-decoration: line-through;
+        }
+
+        .task{
+            display: flex;
+            margin-top: 10px;
+            width: 200px;
+        }
+
+        .task p{
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-panel">
+        <input type="text" id="task-name-input">
+        <button id="add-task-btn">add task</button>
+    </div>
+
+    <div class="task-list">
+        <p id="start-message">no tasks</p>
+    </div>
+
+    <script>
+        let taskNameInput = document.querySelector("#task-name-input");
+        let addTaskButton = document.querySelector("#add-task-btn");
+        let startMessage = document.querySelector("#start-message");
+        let taskList = document.querySelector(".task-list");
+
+        addTaskButton.addEventListener("click", addTaskHandler);
+
+        //функция конструктор структуры новой задачи, в качестве параметра текс задачи
+        function createTask(text){
+            let div = document.createElement("div");
+            div.classList.add("task");
+
+            let input = document.createElement("input");
+            input.type = "checkbox";
+            input.addEventListener("click", changeTaskState); //устанавливаем обработчик на нажатие по checkbox
+
+            let p = document.createElement("p");
+            p.innerText = text;
+
+            div.append(input);
+            div.append(p);
+
+            return div;
+        }
+
+        //функция обработчик, которая меняет статус выбранной задачи
+        function changeTaskState(){
+            if(this.checked){ //если нажатый checkbox с галочкой, то для родительского элемента добавляем класс completed
+                this.parentElement.classList.add("completed");
+            }else{//иначе убираем класс completed
+                this.parentElement.classList.remove("completed");
+            }
+        }
+
+        function addTaskHandler(){
+            if(taskNameInput.value){ //если текст в поле ввода введен
+                if(!startMessage.hidden){
+                    startMessage.hidden = true; //скрываем стартовое сообщение
+                }
+
+                let newTask = createTask(taskNameInput.value); //добавляем в конструктор наш текст
+                taskList.append(newTask);//добавляем в конец дочерним элементом
+                taskNameInput.value = "";//обнуляем поле для ввода
+            }else{ //если поле ввода пустое
+                alert("введите имя задачи");
+            }
+        }
+    </script>
+</body>
+</html>
