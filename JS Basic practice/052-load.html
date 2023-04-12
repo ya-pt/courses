@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //вместо document используем window
+      window.addEventListener("load", function () {
+        let div = document.querySelector("#testDiv");
+        let img = document.querySelector("#testImg");
+
+        console.log(div.textContent);
+        console.log(getComputedStyle(img).width); //внешние ресурсы загружены, размер картинки известен
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      Событие load, с другой стороны, возникает, когда все ресурсы на странице,
+      включая изображения, стили и скрипты, были загружены полностью. Это
+      событие может использоваться для выполнения действий, которые зависят от
+      загрузки всех внешних ресурсов, например, для изменения размеров
+      элементов, создания анимации и т.д.
+    </p>
+
+    <div id="testDiv">this is div</div>
+    <img id="testImg" src="img/img_ok.png" alt="img_ok 348 * 348" />
+  </body>
+</html>

@@ -9,10 +9,10 @@
     <script>
         document.addEventListener("DOMContentLoaded", function(){
             let div = document.querySelector("#testDiv");
-            let img = document.querySelector("testImg");
+            let img = document.querySelector("#testImg");
 
             console.log(div.textContent);
-            console.log(getComputedStyle(img).width); //так как внешние ресурсы еще не загружены, размер картинки неизвестен
+            console.log(getComputedStyle(img).width); //так как внешние ресурсы еще не загружены, размер картинки 0px
         });
     </script>
   </head>
