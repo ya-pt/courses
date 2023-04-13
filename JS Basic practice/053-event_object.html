@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>click me!</button>
+
+    <script>
+      btn = document.querySelector("button");
+      // Данный код создает обработчик события клика на кнопке
+      btn.addEventListener("click", handler); //Обработчик представлен функцией handler(), которая будет вызываться всякий раз, когда пользователь нажимает на кнопку.
+
+      // Когда пользователь нажимает на кнопку, происходит событие click. Это событие передается в качестве аргумента в функцию handler().
+      function handler(eventObject) {
+        console.log(eventObject);
+        // объект события click выводится в консоль браузера, что может помочь разработчику отслеживать события и отладить свой код, если это необходимо.
+      }
+    </script>
+  </body>
+</html>
