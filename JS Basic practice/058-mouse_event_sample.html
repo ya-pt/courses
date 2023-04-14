@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .rect{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- свойства объекта события мыши:
+
+    offsetX и offsetY - относительно элемента
+    clientX и clientY - относительно окна браузера (видимая часть окна)
+    pageX и pageY -  относительно документа (scroll страницы в браузере) -->
+
+    <div id="testDiv" class="rect"></div>
+
+    <script>
+        let div = document.querySelector("#testDiv");
+        let move = false;
+        let offsetX, offsetY;
+
+        //запоминаем место расположения курсора относительно элемента div
+        div.addEventListener("mousedown", function(e){
+            move = true;
+            offsetX = e.offsetX;
+            offsetY = e.offsetY;
+        });
+
+        //отслеживаем движение мыши относительно окна браузера и перемещаем div
+        //div перемещается только если  move == true
+        document.addEventListener("mousemove", function(e){ //document, так как событие должно обрабатываться по всей части страницы, а не только в пределах div
+            if(move){
+                div.style.top = e.clientY - offsetY + "px"; //учитываем сохранение отступов самого элемента от указателя мыши
+                div.style.left = e.clientX - offsetX + "px"; //учитываем сохранение отступов самого элемента от указателя мыши
+            }
+        });
+    </script>
+</body>
+</html>

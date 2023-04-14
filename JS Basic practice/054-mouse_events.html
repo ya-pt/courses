@@ -34,7 +34,7 @@
 
       function mouseMoveHandler(e) {
         //добавляя параметр в определение функции, мы можем получить доступ к объекту события и использовать его свойства
-        let message = `X:${e.clientX}; Y:${e.clientY}`;
+        let message = `X:${e.clientX}; Y:${e.clientY}`; //координаты - курсор мыши относительно левого края окна браузера (в пикселях)
         div.textContent = message;       
       }
     </script>
