@@ -44,6 +44,11 @@
                 div.style.left = e.clientX - offsetX + "px"; //учитываем сохранение отступов самого элемента от указателя мыши
             }
         });
+
+        //в момент когда клавиша отпускается прекращаем перемещение div
+        document.addEventListener("mouseup", function(e){
+            move = false;
+        });
     </script>
 </body>
 </html>
