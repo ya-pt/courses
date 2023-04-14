@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rect {
+        background-color: green;
+        width: 200px;
+        height: 200px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rect" id="testDiv"></div>
+
+    <script>
+      let div = document.querySelector("#testDiv");
+
+      div.addEventListener("mouseover", mouseOverHandler); //курсор попал в div
+      div.addEventListener("mouseout", mouseOutHandler); //курсор вышел за пределы div
+      div.addEventListener("mousemove", mouseMoveHandler); //курсор перемещается по div
+
+      function mouseOverHandler() {
+        div.style.backgroundColor = "orange";
+      }
+
+      function mouseOutHandler() {
+        div.style.backgroundColor = "green";
+      }
+
+      function mouseMoveHandler(e) {
+        //добавляя параметр в определение функции, мы можем получить доступ к объекту события и использовать его свойства
+        let message = `X:${e.clientX}; Y:${e.clientY}`;
+        div.textContent = message;       
+      }
+    </script>
+  </body>
+</html>
