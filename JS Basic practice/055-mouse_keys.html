@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="testBtn">Click me!</button>
+    <button id="resetBtn">reset</button>
+    <p>Output:</p>
+    <div id="output"></div>
+
+    <script>
+        let testButton = document.querySelector("#testBtn");
+        let resetButton = document.querySelector("#resetBtn");
+        let output = document.querySelector("#output");
+
+        resetButton.addEventListener("click", function(){
+            output.innerHTML = "";
+        });
+
+        //which нажатая mouse keys?
+        //1 - левая
+        //2 - средняя(колесико)
+        //3 - правая
+
+        testButton.addEventListener("click", function(e){ //комбинация нажать и отпустить клавишу на мыши
+            output.innerHTML += "click which=" + e.which + "<br />";
+        });
+
+        testButton.addEventListener("mousedown", function(e){ //зажимаем клавишу на мыши
+            output.innerHTML += "mousedown which=" + e.which + "<br />";
+        });
+
+        testButton.addEventListener("mouseup", function(e){ //отпускаем клавишу на мыши
+            output.innerHTML += "mouseup which=" + e.which + "<br />";
+        });
+    </script>
+</body>
+</html>
