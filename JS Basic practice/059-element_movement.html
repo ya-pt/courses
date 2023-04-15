@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #element{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="element"></div>
+    
+    <script>
+        let div = document.querySelector("#element");
+        let distance = 10;
+
+        //создаем событие "keydown", при определенных его значениях (Arrow..) элемент будет смещаться в разные стороны экрана
+        document.addEventListener("keydown", function(e){
+            switch (e.code){ //проверяем значение, которое находится в свойстве code
+                case "ArrowLeft":
+                    moveLeft(div, distance);
+                    break;
+                case "ArrowRight":
+                    moveRight(div, distance);
+                    break;
+                case "ArrowUp":
+                    moveUp(div, distance);
+                    break;
+                case "ArrowDown":
+                    moveDown(div, distance);
+                    break;
+            }
+        });
+
+        function moveLeft(element, distance){
+            let left = getComputedStyle(element).left;
+            element.style.left = parseInt(left) - distance + "px";
+        }
+        
+        function moveRight(element, distance){
+            let left = getComputedStyle(element).left;
+            element.style.left = parseInt(left) + distance + "px";
+        }
+
+        function moveUp(element, distance){
+            let top = getComputedStyle(element).top;// 8px
+            //добавляем стиль top элементу
+            element.style.top = parseInt(top) - distance + "px";//parseInt превращает 8px в число 8
+        }
+
+        function moveDown(element, distance){
+            let top = getComputedStyle(element).top;
+            element.style.top = parseInt(top) + distance + "px";
+        }        
+    </script>
+</body>
+</html>
