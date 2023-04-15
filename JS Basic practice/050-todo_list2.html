@@ -44,6 +44,11 @@
         let taskList = document.querySelector(".task-list");
 
         addTaskButton.addEventListener("click", addTaskHandler);
+        taskNameInput.addEventListener("keydown", function(e){
+            if(e.code == "Enter"){
+                addTaskHandler();
+            }
+        });
 
         //функция конструктор структуры новой задачи, в качестве параметра текс задачи
         function createTask(text){
