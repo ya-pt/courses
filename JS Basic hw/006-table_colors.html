@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      td,
+      th {
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table id="statsTable">
+      <tr>
+        <td>Январь</td>
+        <td>120</td>
+      </tr>
+      <tr>
+        <td>Февраль</td>
+        <td>140</td>
+      </tr>
+      <tr>
+        <td>Март</td>
+        <td>115</td>
+      </tr>
+      <tr>
+        <td>Апрель</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>Март</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td>Июнь</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>Июль</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <th>Итого</th>
+        <th id="output"></th>
+      </tr>
+    </table>
+    <script>
+      /*
+        Задание:
+        Напишите сценарий, который на основании значений во второй колонке таблицы #statsTable поменяет цвет строк таблицы (tr)
+        Если во второй ячейке значение больше 100, строка должна отображаться зеленым цветом, если значение менее 100 - красным цветом.
+        Для смены цвета строки используйте код row.style.backgroundColor = "цвет"
+        */
+
+      let output = document.querySelector("#output");
+      const allRows = Array.from(document.querySelector("#statsTable").rows); //Array.from() - метод для создания нового массива из коллекции
+      const rowsLength = allRows.length;
+      let sum = 0;
+
+      //Элемент table представляет дополнительные свойства для работы с элементами
+      //rows - коллекция строк таблицы <tr>
+      //cells - коллекция <td> и <th> находящихся в <tr>
+      //rowIndex - порядковый номер строки
+
+      //solution 1
+    //   allRows.forEach((row) => {
+    //     console.log(row);
+    //     if (row.rowIndex == rowsLength - 1) {
+    //       return; //последний <tr> в списке нам не нужен
+    //     }
+    //     let score = Number(row.cells[1].textContent); //балл
+    //     sum += score;
+    //     row.style.backgroundColor = score >= 100 ? "green" : "red";
+    //   });
+
+      //solution 2
+      // for (const row of allRows) {
+      //   if (row.rowIndex == rowsLength -1) {
+      //     continue; //последний <tr> в списке нам не нужен
+      //   }
+
+      //   sum +=Number(row.cells[1].textContent);
+
+      //   if (row.cells[1].textContent >= 100) {
+      //     row.style.backgroundColor = "green";
+      //   } else {
+      //     row.style.backgroundColor = "red";
+      //   }
+      // }
+
+      //solution 3***
+      let examsScoreColumn = document.querySelectorAll("#statsTable td:nth-child(2)");
+        
+        for (const td of examsScoreColumn) {
+
+            let currentRow = td.parentElement;
+
+            sum += +td.textContent; //преобразование текстового значения в число с помощью унарного плюса
+
+            if (td.textContent >= 100) {
+                currentRow.style.backgroundColor = "green";
+            }
+            else {
+                currentRow.style.backgroundColor = "pink";
+            }
+        }
+
+      output.textContent = sum;
+    </script>
+  </body>
+</html>
