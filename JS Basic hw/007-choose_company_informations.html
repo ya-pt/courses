@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <h2>Email адреса пользователей</h2>
+    <p id="emailAddressesOutput">
+
+    </p>
+    <h2>Пользователь, у которого больше всего друзей</h2>
+    <p id="greatestFriendsCountOutput"></p>
+
+    </p>
+
+    <h2>Компания пользователя с наибольшим балансом</h2>
+    <p id="greatestBalanceCompanyOutput">
+
+    </p>
+
+
+    <h2>Компания пользователя с наименьшим балансом</h2>
+    <p id="lowestBalanceCompanyOutput">
+
+    </p>
+
+    <script>
+
+        let emailAddresses = document.querySelector("#emailAddressesOutput");
+        let greatestFriendsCount = document.querySelector("#greatestFriendsCountOutput");
+        let greatestBalanceCompany = document.querySelector("#greatestBalanceCompanyOutput");
+        let lowestBalanceCompany = document.querySelector("#lowestBalanceCompanyOutput");
+
+        /*
+        Задание:
+        Перепишите код таким образом, чтобы он не поменял своего поведения,
+        но результат работы сценария выводился не в консоль, а в соответствующие <p>.
+        */
+        // массив сгенерирован с помощью https://next.json-generator.com/
+        let users = [
+            {
+                balance: '1250.89',
+                age: 24,
+                name: {
+                    first: 'Golden',
+                    last: 'Clements'
+                },
+                company: 'EWAVES',
+                email: 'golden.clements@ewaves.io',
+                friends: [
+                    {
+                        id: 0,
+                        name: 'Buchanan Austin'
+                    },
+                    {
+                        id: 1,
+                        name: 'Richmond Garrison'
+                    },
+                    {
+                        id: 2,
+                        name: 'Burns Cook'
+                    },
+                    {
+                        id: 3,
+                        name: 'Sally Mcpherson'
+                    },
+                    {
+                        id: 4,
+                        name: 'Nina Hood'
+                    },
+                    {
+                        id: 5,
+                        name: 'Rhonda Anderson'
+                    },
+                    {
+                        id: 6,
+                        name: 'Mathis Bowen'
+                    },
+                    {
+                        id: 7,
+                        name: 'Janie Carlson'
+                    },
+                    {
+                        id: 8,
+                        name: 'Brooke Reilly'
+                    },
+                    {
+                        id: 9,
+                        name: 'Peters Oliver'
+                    }
+                ],
+                favoriteFruit: 'strawberry'
+            },
+            {
+                balance: '1659.17',
+                age: 20,
+                name: {
+                    first: 'Gilliam',
+                    last: 'Mendez'
+                },
+                company: 'ZENTHALL',
+                email: 'gilliam.mendez@zenthall.tv',
+                friends: [
+                    {
+                        id: 0,
+                        name: 'Nora Ratliff'
+                    },
+                    {
+                        id: 1,
+                        name: 'Simone Michael'
+                    },
+                    {
+                        id: 2,
+                        name: 'Lang Rose'
+                    },
+                    {
+                        id: 3,
+                        name: 'Priscilla Hester'
+                    },
+                    {
+                        id: 4,
+                        name: 'Stuart Barker'
+                    },
+                    {
+                        id: 5,
+                        name: 'Florine Mcintyre'
+                    },
+                    {
+                        id: 6,
+                        name: 'Karin Rosa'
+                    },
+                    {
+                        id: 7,
+                        name: 'Vinson Rutledge'
+                    }
+                ],
+                favoriteFruit: 'strawberry'
+            },
+            {
+                balance: '2340.54',
+                age: 32,
+                name: {
+                    first: 'Brewer',
+                    last: 'Vargas'
+                },
+                company: 'QIMONK',
+                email: 'brewer.vargas@qimonk.co.uk',
+                friends: [
+                    {
+                        id: 0,
+                        name: 'Tamera Sharp'
+                    },
+                    {
+                        id: 1,
+                        name: 'Jackie Parks'
+                    },
+                    {
+                        id: 2,
+                        name: 'Wanda Merritt'
+                    },
+                    {
+                        id: 3,
+                        name: 'Castillo Sloan'
+                    }
+                ],
+                favoriteFruit: 'apple'
+            },
+            {
+                balance: '1736.91',
+                age: 24,
+                name: {
+                    first: 'Newman',
+                    last: 'Wynn'
+                },
+                company: 'VISALIA',
+                email: 'newman.wynn@visalia.name',
+                friends: [
+                    {
+                        id: 0,
+                        name: 'Lopez Mccarthy'
+                    },
+                    {
+                        id: 1,
+                        name: 'Melinda Diaz'
+                    },
+                    {
+                        id: 2,
+                        name: 'Silva Shepherd'
+                    },
+                    {
+                        id: 3,
+                        name: 'Claudia Contreras'
+                    },
+                    {
+                        id: 4,
+                        name: 'Jenna Golden'
+                    },
+                    {
+                        id: 5,
+                        name: 'Blair Hayden'
+                    },
+                    {
+                        id: 6,
+                        name: 'Antonia Woods'
+                    },
+                    {
+                        id: 7,
+                        name: 'Felecia Greer'
+                    },
+                    {
+                        id: 8,
+                        name: 'Sherry Howard'
+                    },
+                    {
+                        id: 9,
+                        name: 'Montgomery Cohen'
+                    }
+                ],
+                favoriteFruit: 'apple'
+            }
+        ];
+
+        function showAllEmails() {
+            console.log("Электронные адреса пользователей:")
+            users.forEach(user => console.log(user.email));
+
+            //solution
+            users.forEach(user => {
+                let pElement = document.createElement("p");
+                pElement.textContent = user.email;
+                emailAddresses.append(pElement);
+            });
+        }
+
+        function showHighestFriendCount() {
+            console.log("Пользователи с наибольшим количеством друзей");
+
+            let max = Number.MIN_VALUE;
+
+            users.forEach(user => {
+                if (max < user.friends.length)
+                    max = user.friends.length;
+            });
+
+            users
+                .filter(user => user.friends.length == max)
+                .forEach(user => {
+                    console.log(user.name.first + " " + user.name.last);
+
+                    //solution
+                    let pName = document.createElement("p");
+                    pName.textContent = user.name.first + " " + user.name.last;
+                    greatestFriendsCount.append(pName);                    
+                });
+        }
+
+        function showMinMaxBalance() {
+            let minBalance = Number.MAX_VALUE;
+            let maxBalance = Number.MIN_VALUE;
+
+            users.forEach(user => {
+                const currentBalance = +user.balance;
+                if (currentBalance > maxBalance)
+                    maxBalance = currentBalance;
+                else if (currentBalance < minBalance) {
+                    minBalance = currentBalance;
+                }
+            });
+
+            console.log("Компании пользователей с наибольшим балансом:")
+            users
+                .filter(user => user.balance == maxBalance)
+                .forEach(user => {
+                    console.log(user.company);
+
+                    //solution
+                    let pMaxCompany = document.createElement("p");
+                    pMaxCompany.textContent = user.company;
+                    greatestBalanceCompany.append(pMaxCompany);
+                });
+
+            console.log("Компании пользователей с наименьшим балансом:")
+            users
+                .filter(user => user.balance == minBalance)
+                .forEach(user => {
+                    console.log(user.company);
+
+                    //solution
+                    let pMinCompany = document.createElement("p");
+                    pMinCompany.textContent = user.company;
+                    lowestBalanceCompany.append(pMinCompany);
+                });
+        }
+
+        showAllEmails();
+        showHighestFriendCount();
+        showMinMaxBalance();
+    </script>
+</body>
+
+</html>
