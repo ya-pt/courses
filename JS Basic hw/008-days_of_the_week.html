@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+
+    <style>
+        div {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    Рабочие дни
+    <div id="weekdays"></div>
+
+    Выходные дни
+    <div id="weekend"></div>
+
+    <script>
+       /*
+        Задание:
+        Используя параграфы, выведите все рабочие дни недели в div - "Рабочие дни", 
+		выведите все выходные дни - "Выходные дни".
+        Параграфы создавайте с помощью перебора массива days. В параграф помещайте значение свойства name.
+        */
+
+        let days = [{ name: "Sunday", isWorkDay: false },
+        { name: "Monday", isWorkDay: true },
+        { name: "Tuesday", isWorkDay: true },
+        { name: "Wednesday", isWorkDay: true },
+        { name: "Thursday", isWorkDay: true },
+        { name: "Friday", isWorkDay: true },
+        { name: "Saturday", isWorkDay: false }];
+
+
+        //solution
+        let weekdays = document.querySelector("#weekdays");
+        let weekend = document.querySelector("#weekend");
+
+        for (const day of days) {
+            let p = document.createElement("p");
+            p.textContent = day.name;
+            if(day.isWorkDay){
+                weekdays.append(p);
+            }else{
+                weekend.prepend(p);
+            }
+        }
+    </script>
+</body>
+
+</html>
