@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div {
+        border: 2px solid darkgreen;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- В модели событий DOM в JavaScript есть три фазы обработки событий:
+
+    1.Фаза захвата (Capture phase): В этой фазе обработчики событий вызываются на вложенных элементах,
+    начиная с самого внешнего элемента в цепочке и заканчивая элементом, на котором произошло событие.
+
+    2.Фаза цели (Target phase): В этой фазе обработчики событий вызываются на элементе, на котором произошло событие.
+
+    3.Фаза всплытия (Bubbling phase): В этой фазе обработчики событий вызываются на родительских элементах в цепочке,
+    начиная с элемента, на котором произошло событие, и заканчивая самым внешним элементом в иерархии DOM.
+
+    Обработчики событий вызываются в порядке, указанном выше: сначала на элементах в фазе захвата,
+    затем на элементе в фазе цели и, наконец, на элементах в фазе всплытия. -->
+
+    <div id="div1">
+        div1
+        <div id="div2">
+            div2
+            <div id="div3">
+                div3
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let divArray = document.querySelectorAll("div");
+        divArray.forEach(div => {
+            div.addEventListener("click", handlerOnCapture, true); //обработка события на фазе погружения
+            div.addEventListener("click", handlerOnBubble); //(false)-по умолчанию //обработка события на фазе всплытия            
+        });
+
+        function handlerOnCapture(){
+            alert("Фаза 1 (capture) " + this.id); //id элемента, над которым сейчас происходит событие
+        }
+
+        function handlerOnBubble(e){
+            alert("Фаза 3 (bubble) " + this.id);
+        }
+    </script>
+  </body>
+</html>
