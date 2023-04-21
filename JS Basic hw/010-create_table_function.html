@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      td,
+      th {
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      /*
+        Задание:
+        Создайте таблицу (table, tr, td) на основе массива объектов с именем source. Каждый объект - отдельная строка таблицы. 
+        Свойство month - значение для первой колонок.
+        Свойство amount - значение для второй колонки.
+        */
+
+      let source = [
+        {
+          month: "Январь",
+          amount: 20,
+        },
+        {
+          month: "Февраль",
+          amount: 140,
+        },
+        {
+          month: "Март",
+          amount: 115,
+        },
+        {
+          month: "Апрель",
+          amount: 100,
+        },
+        {
+          month: "Май",
+          amount: 80,
+        },
+        {
+          month: "Июнь",
+          amount: 90,
+        },
+        {
+          month: "Июль",
+          amount: 100,
+        },
+      ];
+
+      let table = document.createElement("table");
+
+      //solution1
+      createTable();
+
+      function createTable() {
+        source.forEach((object) => {
+          let tr = document.createElement("tr");
+          tr.insertAdjacentHTML("beforeend", `<td>${object.month}</td>`);
+          tr.insertAdjacentHTML("beforeend", `<td>${object.amount}</td>`);
+          table.append(tr);
+        });
+        document.body.append(table);
+      }
+
+      //solution2
+    //   createTable2();
+      
+      function createTable2() {
+        for (const item of source) {
+          table.append(createRow(item.amount, item.month));
+        }
+
+        function createRow(colum1Text, colum2Text) {
+          let tr = document.createElement("tr");
+          tr.append(createCell(colum1Text));
+          tr.append(createCell(colum2Text));
+          return tr;
+        }
+
+        function createCell(text) {
+          let td = document.createElement("td");
+          td.textContent = text;
+          return td;
+        }
+
+        document.body.append(table);
+      }
+    </script>
+  </body>
+</html>
