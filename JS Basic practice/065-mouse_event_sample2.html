@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .rect{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .red{
+            background-color: red;
+            top: 10px;
+            left: 10px;
+        }
+
+        .greenyellow{
+            background-color: greenyellow;
+            top: 20px;
+            left: 20px;
+        }
+
+        .blue{
+            background-color: blue;
+            top: 30px;
+            left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- свойства объекта события мыши:
+
+    offsetX и offsetY - относительно элемента
+    clientX и clientY - относительно окна браузера (видимая часть окна)
+    pageX и pageY -  относительно документа (scroll страницы в браузере) -->
+
+    <div id="panel">
+        <div class="rect red"></div>
+        <div class="rect greenyellow"></div>
+        <div class="rect blue"></div>
+    </div>
+    
+    <script>
+        let panel = document.querySelector("#panel");
+        let move = false;
+        let offsetX, offsetY;
+        let currentDiv;
+
+        //обработчик один на все div, которые вложены в элемент #panel
+        panel.addEventListener("mousedown", function(e){
+            move = true;
+            offsetX = e.offsetX; //координаты клика, относительно элемента с классом .rect
+            offsetY = e.offsetY;
+            currentDiv = e.target; //ссылка на тот элемент из-за которого событие возникло
+        });
+
+        //document, так как событие должно обрабатываться по всей части страницы, даже если мышка выйдет за пределы div
+        document.addEventListener("mousemove", function(e){
+            if(move){ //div перемещается только если  move == true
+                currentDiv.style.top = e.clientY - offsetY + "px";
+                currentDiv.style.left = e.clientX - offsetX + "px"; //учитываем сохранение отступов самого элемента от указателя мыши
+            }
+        });
+
+        //в момент когда клавиша отпускается прекращаем перемещение div
+        document.addEventListener("mouseup", function(e){
+            move = false;
+        });
+    </script>
+</body>
+</html>
