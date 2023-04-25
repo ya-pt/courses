@@ -29,6 +29,10 @@
         .user-card ul {
             list-style: none;
         }
+
+        .redBorder{
+            border: 2px solid red;
+        }
     </style>
 </head>
 
@@ -38,7 +42,6 @@
 
         /*
         Задание:
-        Внесите правки в данный код.
         Карточка пользователя, у которого менее 5 друзей (значение размера массива friends в объектах массива users),
         должна отображаться с красной рамкой толщиной в 2px.
         */
@@ -393,7 +396,7 @@
             }
 
             if (user.friends.length < 5) {
-                div.style.border ="2px solid red";
+                div.classList.add("redBorder");
             }
             
             div.append(ul);
