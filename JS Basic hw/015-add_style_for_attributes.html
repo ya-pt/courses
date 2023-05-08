@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 04</title>
+
+    <style>
+
+        .task{
+            margin-bottom: 5px;
+        }
+
+        .redBorder{
+            border: 1px solid red;
+        }
+
+        .greenBorder{
+            border: 1px solid green;
+        }
+
+
+        /* solution2 */
+        /* Для элементов с атрибутом */
+        .task[data-status="completed"] {
+            border: 1px solid green;
+        }
+
+        .task[data-status="expired"] {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="task" data-status="completed">
+        Купить молоко
+    </div>
+
+    <div class="task" data-status="expired">
+        Выгулять собаку
+    </div>
+
+    <div class="task">
+        Выучить JavaScript
+    </div>
+
+    <div class="task">
+        Спасти мир
+    </div>
+
+    <script>
+        /*
+        Задание:
+        Для элементов с атрибутом data-status="expired" сделайте рамку красного цвета. 
+        Для элементов с атрибутом data-status="completed" выведите рамку зеленого цвета.
+        */
+
+        let elements = document.querySelectorAll("[data-status]");
+
+        elements.forEach(element => {
+            if(element.dataset.status == "expired"){
+                element.classList.add("redBorder");
+            }
+            if(element.dataset.status === "completed"){
+                element.classList.add("greenBorder");
+            }
+        });
+
+        // solution2
+        // С помощью элемента <style> внутри тега <head> веб-страницы.
+        
+    </script>
+</body>
+
+</html>
