@@ -7,6 +7,7 @@
     animation: animation 5s infinite;
 }
 
+/* привязываем элементы к areas */
 .grid-animation div:nth-child(1){
     grid-area: a;
 }

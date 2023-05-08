@@ -6,7 +6,7 @@
     width: 100px;
 }
 
-/* enother example */
+/* another example */
 /* grid overflow */
 
 .grid-min-size{
@@ -20,7 +20,7 @@
 
 /* два блока переполнены и первый ушел за второй */
 
-/* enother example */
+/* another example */
 
 .grid-max-size{
     grid-template-columns: 200px;
@@ -35,7 +35,7 @@
 
 /* лучше в grid использовать max */
 
-/* enother example */
+/* another example */
 
 .grid-padding-size{
     grid-template-columns: 400px;
@@ -47,7 +47,7 @@
     padding-right: 400px;
 }
 
-/* enother example */
+/* another example */
 
 .margin-grid{
     grid-template-columns: 100px 1fr;
@@ -64,7 +64,7 @@
 
 /* у первой ячейки фиксированное значение, поэтому блок ужимается не пропорционально, а 3 ячейка адаптивная(fr) */
 
-/* enother example */
+/* another example */
 
 .grid-auto-margin{
     grid-template-columns: 1fr;
@@ -76,7 +76,7 @@
 
 /* !!! в grid свойство (margin: 0 auto;) ведет себя иначе и является плохой практикой */
 
-/* enother example */
+/* another example */
 /* Desktop First Responsive Design Адаптивный дизайн*/
 
 .responsive-grid{
@@ -127,7 +127,7 @@
     } 
 }
 
-/* enother example */
+/* another example */
 /* Mobile First */
 
 .responsive-grid2{
@@ -185,5 +185,3 @@
 }
 
 /* !!! чтобы избежать ошибок, пиши @media в конце всех правил */
-
-/* enother example */

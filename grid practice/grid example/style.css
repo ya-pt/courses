@@ -12,6 +12,7 @@
     font-weight: 800;
     grid-template-columns: [start-column] 1fr 1fr [middle-column] 1fr 1fr [end-column];
 }
+/* добавляем четыре колонки и задаем имена трём столбцам */
 
 .block{
     border: 2px solid black;
@@ -20,10 +21,12 @@
     padding: 30px;
 }
 
+/* растягиваем первый div */
 .container div:nth-child(1){
     grid-column: start-column/middle-column;
 }
 
+/* растягиваем шестой div */
 .container div:nth-child(6){
     grid-column: middle-column/end-column;
 }

@@ -71,5 +71,5 @@ main{
 footer{
     grid-area: footer;
     position: sticky;
-    bottom: 0;
+    bottom: -0;
 }

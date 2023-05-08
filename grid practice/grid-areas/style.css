@@ -44,18 +44,6 @@
     grid-template: repeat(3,100px)/1fr 2fr;
     grid-template-areas: 
     "header ."
-    "content content"
-    "left-side right-side"
-    "article article"
-    "footer footer";
-}
-
-/* а если мы хотим объединить не блоки а строки, то одинаковые имена должны распологаться по вертикали */
-
-.grid-areas{
-    grid-template: repeat(3,100px)/1fr 2fr;
-    grid-template-areas: 
-    "header ."
     "header content"
     "left-side right-side"
     "left-side article"

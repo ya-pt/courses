@@ -9,7 +9,7 @@
     grid-column-end: end-column;
 } */
 
-/* так же можно указывать промежуточные линии, например.. */
+/* так же можно указывать промежуточные линии, например... */
 
 .line-name{
     grid-template-columns: [start-column] 1fr 2fr[logo-block] 1fr [end-column];
