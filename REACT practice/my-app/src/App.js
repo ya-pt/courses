@@ -2,19 +2,15 @@
 //импортируем библиотеки
 import React from "react";
 
+import Header from "./components/Header";
+import Header2 from "./components/Header2";
+
 // (FUNCTION COMPONENTS)-------------------------------------------------------------------------------------------
 
-const helpText = "help text !";
 
-// Component 2
-function Header(){
-  return(
-    <header>header</header>
-  );
-}
-
-// Component 1
 function MyApp() {// должно начинаться с заглавной буквы
+  const helpText = "help text !!!";
+
   return (
     <div className="thisIsClass">
       <Header />
@@ -35,14 +31,6 @@ function MyApp() {// должно начинаться с заглавной б�
 
 // (CLASS COMPONENTS)-------------------------------------------------------------------------------------------
 
-class Header2 extends React.Component{ // наследуются от базового класса React.Component
-  render(){ // функция(метод класса)
-    return(
-      // props является ссылкой на объект, содержащий все переданные свойства
-      <header>{this.props.title}</header>
-    )
-  }
-}
 
 class MyApp2 extends React.Component{
   text = "click or mouse"
