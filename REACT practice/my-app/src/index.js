@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 
 // импортируем созданные компоненты 
 import MyApp2, {MyApp} from './App'
+import './css/main.css'
 
 // (CLASS COMPONENTS)
 const app2 = document.querySelector("#app2");

@@ -2,18 +2,22 @@
 //импортируем библиотеки
 import React from "react";
 
+//компоненты
 import Header from "./components/Header";
 import Header2 from "./components/Header2";
 
+//картинки
+import logo from "./img/logo.png"
+
+
 // (FUNCTION COMPONENTS)-------------------------------------------------------------------------------------------
 
-
 function MyApp() {// должно начинаться с заглавной буквы
-  const helpText = "help text !!!";
+  const helpText = "help text !";
 
   return (
     <div className="thisIsClass">
-      <Header />
+      <Header title='"TITLE"'/>
       <Header />
       <Header />
 
@@ -21,7 +25,8 @@ function MyApp() {// должно начинаться с заглавной б�
       {/* conditions */}
       <p>{helpText === "help text !" ? "yes" : "no"}</p> {/* yes */}
       <p>{helpText === "help text" ? "yes" : "no"}</p> {/* no */}
-      <span>___________________</span>
+      
+      <img src={logo} alt=""></img>
     </div>
   );
 }
@@ -31,8 +36,8 @@ function MyApp() {// должно начинаться с заглавной б�
 
 // (CLASS COMPONENTS)-------------------------------------------------------------------------------------------
 
-
 class MyApp2 extends React.Component{
+  // в классовых компонентах создаем значения без переменных, обращаемся через this.
   text = "click or mouse"
   render(){
     return(<div>

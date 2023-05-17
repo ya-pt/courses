@@ -2,9 +2,10 @@
 //импортируем библиотеки
 import React from "react";
 
-function Header(){
+// (FUNCTION COMPONENTS)
+function Header(props){
     return(
-      <header>header</header>
+      <header className="header">{props.title} header</header>
     );
 }
 
