@@ -1,5 +1,3 @@
-//React 18
-//импортируем библиотеки
 import React from "react";
 
 // (FUNCTION COMPONENTS)

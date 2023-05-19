@@ -1,20 +1,44 @@
-//React 18
+//React 18+
 //импортируем библиотеки
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 
-// импортируем созданные компоненты 
-import MyApp2, {MyApp} from './App'
-import './css/main.css'
-
-// (CLASS COMPONENTS)
-const app2 = document.querySelector("#app2");
-const root2 = ReactDOM.createRoot(app2);
-root2.render(<MyApp2 />);
+// импортируем созданные компоненты
+import ClassCompMyApp2, { FunCompMyApp, ClassAppStates, FunAppStates} from "./App";
+import "./css/main.css";
 
 // (FUNCTION COMPONENTS)
-const app = document.querySelector("#app");
-const root = ReactDOM.createRoot(app);//для управления корневым компонентом вашего приложения
-root.render(<MyApp />);
-//ReactDOM - обращаемся ко всей html странице и выбираем из нее нужные объекты
-//render - что будем помещать(только один родительский тег) в определенный html тег
+
+const root = createRoot(document.querySelector("#funCompMyApp")); //управление корневым компонентом вашего приложения
+root.render(
+  // render - что будем помещать(только один родительский тег) в определенный html тег
+  <React.StrictMode>
+    {/* включает строгий режим */}
+    <FunCompMyApp />
+  </React.StrictMode>
+);
+
+const root4 = createRoot(document.querySelector("#funAppStates"));
+root4.render(
+  <React.StrictMode>
+    <FunAppStates/>
+  </React.StrictMode>
+)
+
+
+
+// (CLASS COMPONENTS)
+
+const root2 = createRoot(document.querySelector("#classCompMyApp2"));
+root2.render(
+  <React.StrictMode>
+    <ClassCompMyApp2 />
+  </React.StrictMode>
+);
+
+const root3 = createRoot(document.querySelector("#classAppStates"));
+root3.render(
+  <React.StrictMode>
+    <ClassAppStates/>
+  </React.StrictMode>
+);
