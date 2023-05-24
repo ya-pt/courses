@@ -34,3 +34,8 @@ body {
     background-color: #3a9bea;
     padding: 25px 0 20px 0;
 }
+
+.thisIsClass{
+border: 3px solid red;
+margin-bottom: 10px;
+}
