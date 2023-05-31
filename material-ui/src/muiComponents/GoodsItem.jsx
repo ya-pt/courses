@@ -7,7 +7,7 @@ const GoodsItem = (props) => {
     // строим на основе material
     return (
         <Grid item xs={12} md={4}>{/* сетка-элемент, может включать в себя пропсы, такие как item, (от 1-12) xs, sm, md, lg, xl, и т.д. */}
-            <Card>{/* Components */}
+            <Card sx={{ height: "100%" }}>
                 <CardMedia
                     image={poster}
                     component="img"
@@ -21,7 +21,7 @@ const GoodsItem = (props) => {
                 </CardContent>
                 <CardActions>
                     <Button
-                        variant='contained'
+                        variant='text'
                         onClick={() =>
                             setOrder({
                                 id: props.id,

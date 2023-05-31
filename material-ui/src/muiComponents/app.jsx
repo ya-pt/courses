@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Container } from "@mui/material";
 
 //компоненты
+import Basket from "./Basket";
 import BasketList from "../components/BasketList";
 import GoodsList from "./GoodsList";
 import Search from "./Search";
@@ -15,6 +16,7 @@ const App = () => {
   const [order, setOrder] = useState([]);
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState(goods);
+  const [isCartOpen, setCartOpen] = useState(false);
 
   const handleChange = (e) => {
     if (!e.target.value) {
@@ -81,6 +83,7 @@ const App = () => {
         <GoodsList goods={products} setOrder={addToOrder} />
         <BasketList order={order} setOrder={removeFromOrder} />
       </Container>{/* предоставляет гибкую обертку */}
+      <Basket cartOpen={isCartOpen} closeCart={() => setCartOpen(false)}/>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from "@mui/material";
 
-import GoodsItem from '../components/GoodsItem';
+import GoodsItem from './GoodsItem';
 
 const GoodsList = (props) => {
     const { goods, setOrder } = props;
