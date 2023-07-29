@@ -4,10 +4,10 @@ import { Container } from "@mui/material";
 
 //компоненты
 import Basket from "./Basket";
-import BasketList from "../components/BasketList";
 import GoodsList from "./GoodsList";
 import Search from "./Search";
 import Header from "./Header";
+import Snack from "./Snack";
 
 //переменные
 import { goods } from "../data/goods";
@@ -17,6 +17,7 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState(goods);
   const [isCartOpen, setCartOpen] = useState(false);
+  const [isSnackOpen, setSnackOpen] = useState(false);
 
   const handleChange = (e) => {
     if (!e.target.value) {
@@ -64,6 +65,8 @@ const App = () => {
         },
       ]);
     }
+
+    setSnackOpen(true);
   };
 
   const removeFromOrder = (goodsItem) => {
@@ -73,7 +76,10 @@ const App = () => {
   // строим на основе material
   return (
     <div className="App">
-      <Header />
+      <Header
+        handleCart={() => setCartOpen(true)}
+        orderLength={order.length}
+      />
       <Container
         sx={{
           mt: "1rem", //margin-top
@@ -81,9 +87,14 @@ const App = () => {
       >
         <Search value={search} onChange={handleChange} />
         <GoodsList goods={products} setOrder={addToOrder} />
-        <BasketList order={order} setOrder={removeFromOrder} />
       </Container>{/* предоставляет гибкую обертку */}
-      <Basket cartOpen={isCartOpen} closeCart={() => setCartOpen(false)}/>
+      <Basket
+        order={order}
+        cartOpen={isCartOpen}
+        closeCart={() => setCartOpen(false)}
+        removeFromOrder={removeFromOrder}
+      />
+      <Snack isOpen={isSnackOpen} handleClose={() => setSnackOpen(false)}/>
     </div>
   );
 };

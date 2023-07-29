@@ -1,5 +1,3 @@
-// строим на основе material
-
 import { TextField } from "@mui/material";
 
 const Search = (props) => {
