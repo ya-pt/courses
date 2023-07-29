@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 02</title>
+    <title>Task</title>
   </head>
 
   <body>
@@ -35,19 +35,20 @@
       /*
         Задание:
         Посчитайте сумму значений атрибутов data-value и my-attribute всех элементов на текущей странице и отобразите ее пользователю.
-        */
+      */
 
 
       getSumOfAttributes("data-value");
       getSumOfAttributes("my-attribute");
       
       function getSumOfAttributes(attribute){
-        let attrElements = document.querySelectorAll(`[${attribute}]`);//получаем коллекцию со всеми атрибутами с данным названием
+        const attrElements = document.querySelectorAll(`[${attribute}]`);//получаем коллекцию(NodeList) со всеми атрибутами с данным названием
         
-        let sum = 0;
-        attrElements.forEach(element => {
-            sum += +element.getAttribute(attribute);
-        });
+        //преобразует NodeList в массив
+        const sum = Array.from(attrElements).reduce((acc, element) => {
+          return acc + +element.getAttribute(attribute);// извлекается значение атрибута элемента
+        }, 0);
+
         alert(sum);
       }
     </script>
