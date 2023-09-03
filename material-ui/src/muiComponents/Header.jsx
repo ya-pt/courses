@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Typography, IconButton, Badge } from "@mui/material";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
-function Header({handleCart, orderLength}) {
+function FunHeader({handleCart, orderLength}) {
   return (
     <AppBar position="static"> {/* изменяем позиционирование на default значение */}
       <Toolbar>
@@ -18,4 +18,4 @@ function Header({handleCart, orderLength}) {
   );
 }
 
-export default Header;
+export default FunHeader;

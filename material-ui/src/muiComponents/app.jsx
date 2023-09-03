@@ -6,7 +6,7 @@ import { Container } from "@mui/material";
 import Basket from "./Basket";
 import GoodsList from "./GoodsList";
 import Search from "./Search";
-import Header from "./Header";
+import FunHeader from "./FunHeader";
 import Snack from "./Snack";
 
 //переменные
@@ -76,7 +76,7 @@ const App = () => {
   // строим на основе material
   return (
     <div className="App">
-      <Header
+      <FunHeader
         handleCart={() => setCartOpen(true)}
         orderLength={order.length}
       />

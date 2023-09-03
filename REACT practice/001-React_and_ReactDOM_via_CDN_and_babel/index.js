@@ -44,10 +44,12 @@ const inputClick = () => console.log("clicked");
 const inputMouse = () => console.log("mouse");
 
 const helpText = "help text !";
-const elements = (<div>
-  <h1>{helpText}</h1>
-  <input placeholder={helpText} onClick={inputClick} onMouseEnter={inputMouse}/>
-</div>);
+const elements = (
+  <div>
+    <h1>{helpText}</h1>
+    <input placeholder={helpText} onClick={inputClick} onMouseEnter={inputMouse}/>
+  </div>
+);
 
 const variable = document.querySelector("#inputVariable");
 
