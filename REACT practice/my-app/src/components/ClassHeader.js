@@ -1,7 +1,7 @@
 import React from "react";
 
 // (CLASS COMPONENTS)
-class Header2 extends React.Component{ // наследуются от базового класса React.Component
+class ClassHeader extends React.Component{ // наследуются от базового класса React.Component
     render(){ // функция(метод класса)
       return(
         // this(этот класс), содержит props(является ссылкой на объект, содержащий все переданные свойства)
@@ -10,4 +10,4 @@ class Header2 extends React.Component{ // наследуются от базов
     }
 }
 
-export default Header2
+export default ClassHeader

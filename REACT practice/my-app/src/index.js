@@ -4,8 +4,9 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 // импортируем созданные компоненты
-import ClassCompMyApp2, { FunCompMyApp, ClassAppStates, FunAppStates} from "./App";
-import "./css/main.css";
+import ClassCompMyApp2, { FunCompMyApp, ClassAppStates, FunAppStates} from "./componentBlocks/App";
+import UsersList from "./componentBlocks/UsersList.tsx";
+import "./css/main.css"; //подключение стилей ко всему проекту
 
 // (FUNCTION COMPONENTS)
 
@@ -40,5 +41,18 @@ const root3 = createRoot(document.querySelector("#classAppStates"));
 root3.render(
   <React.StrictMode>
     <ClassAppStates/>
+  </React.StrictMode>
+);
+
+
+
+// (another COMPONENTS...)
+// .tsx
+// const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
+const rootListUsers = createRoot(document.querySelector("#listUsers"));
+rootListUsers.render(
+  <React.StrictMode>
+    <UsersList/>
   </React.StrictMode>
 );

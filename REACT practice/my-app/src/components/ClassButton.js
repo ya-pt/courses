@@ -18,7 +18,7 @@ class ClassButton extends Component {
   }
 
   componentDidUpdate() {
-    document.title = `clicked ${this.state.click}`;
+    document.title = `clicked ${this.state.click}`; //происходит автоматически, если произошло изменение this.state
   }
 
   handleClick = () => {

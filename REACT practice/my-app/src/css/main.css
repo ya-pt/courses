@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&display=swap');
+
 *,
 *:before,
 *:after {
@@ -10,8 +12,10 @@
 }
 
 body {
-  background-color: #333;
+  background-color: #444;
   color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
 }
 
 ::placeholder{
@@ -20,9 +24,11 @@ body {
 }
 
 .header {
-  background-color: #000;
+  background-color: #111;
   padding: 20px;
   text-align: center;
+  font-weight: 400;
+  /* font-style: italic; */
 }
 
 .classAppStates{

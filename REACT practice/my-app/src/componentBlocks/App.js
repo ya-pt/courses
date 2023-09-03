@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from 'react';
 
 //компоненты
-import Header from "./components/Header";
-import Header2 from "./components/Header2";
-import FunButton from "./components/FunButton";
-import ClassButton from "./components/ClassButton"
+import FunHeader from "../components/FunHeader";
+import ClassHeader from "../components/ClassHeader";
+import FunButton from "../components/FunButton";
+import ClassButton from "../components/ClassButton"
 
 //картинки
-import logo from "./img/logo.png";
+import logo from "../img/logo.png";
 
 // (FUNCTION COMPONENTS)-------------------------------------------------------------------------------------------
 
@@ -18,9 +18,9 @@ function FunCompMyApp() {
 
   return (
     <div className="thisIsClass">
-      <Header title='"(FUNCTION COMPONENTS)"' />
-      <Header/>
-      <Header/>
+      <FunHeader title='"(FUNCTION COMPONENTS)"' />
+      <FunHeader/>
+      <FunHeader/>
 
       <FunButton text="button"/>
       <FunButton/>
@@ -42,9 +42,9 @@ class ClassCompMyApp2 extends React.Component {
   render() {
     return (
       <div className="thisIsClass">
-        <Header2 title="(CLASS COMPONENTS)" />
-        <Header2 title="header" />
-        <Header2 title="шапка/header" />
+        <ClassHeader title="(CLASS COMPONENTS)" />
+        <ClassHeader title="header" />
+        <ClassHeader title="шапка/header" />
 
         <ClassButton/>
         <ClassButton text="btn"/>
@@ -77,7 +77,7 @@ class ClassAppStates extends React.Component {
     this.state = {
       //указываем изначальное состояние элементов
       // в классовых компонентах создаем значения без переменных (обращаемся через this)
-      text: "click states here",
+      text: "click states here (class)",
       userData: ""
     };
 
@@ -115,7 +115,7 @@ class ClassAppStates extends React.Component {
 // (FUNCTION STATES)-------------------------------------------------------------------------------------------
 
 function FunAppStates() {
-  const [text, setText] = useState("click states here");
+  const [text, setText] = useState("click states here (fun)");
   const [userData, setUserData] = useState("");
 
   const inputClick = () => {
