@@ -1,36 +1,30 @@
 import React from "react";
+import User from "./User";
+import { UserTypes } from "./UserTypes";
 
-const Users: React.FC = () => {
-    const users=[
-        {
-            id: 1,
-            firstName: 'John',
-            lastName: 'Doe',
-            email: 'john@example.com',
-            age: 28,
-            bio: 'I love programming and hiking.',
-            happy: true,
-        },
-        {
-            id: 2,
-            firstName: 'Jane',
-            lastName: 'Smith',
-            email: 'jane@example.com',
-            age: 32,
-            bio: 'Passionate about art and photography.',
-            happy: false,
-        },
-    ]
+
+interface UsersProps {
+    users: UserTypes[];
+}
+
+const Users: React.FC<UsersProps> = (props) => {
 
     return(
         <div>
             {
-                users.map((el) => (
-                    <div key={el.id}>
-                        <h3>{el.firstName} {el.lastName}</h3>
-                        <p>{el.bio}</p>
+                props.users.length > 0 ? (
+                    <div>
+                        {
+                            props.users.map((el) => (
+                                <User key={el.id} user={el}/>
+                            ))
+                        }
                     </div>
-                ))
+                ) : (
+                    <div className="user">
+                        <h3>No users</h3>
+                    </div>
+                )
             }
         </div>
     );

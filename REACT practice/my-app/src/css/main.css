@@ -19,8 +19,8 @@ body {
 }
 
 ::placeholder{
-    padding-left: 15px;
-    color: #3a9bea;
+  padding-left: 15px;
+  color: #3a9bea;
 }
 
 .header {
@@ -31,17 +31,76 @@ body {
   /* font-style: italic; */
 }
 
+main{
+  margin: 50px 100px;
+  width: 50%;
+  float: left;
+}
+
+main .user{
+  margin-bottom: 50px;
+  background-color: #3e8fa0;
+  padding: 20px;
+}
+
+main .deleteIcon:hover,
+main .editIcon:hover{
+  opacity: 0.5;
+}
+
+aside{
+  width: 20%;
+  margin-top: 50px;
+  margin-left: 5%;
+  float: left;
+  text-align: center;
+}
+
+aside form input:not([type="checkbox"]),
+aside form textarea,
+aside form button{
+  width: 90%;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  margin-bottom: 10px;
+  border: 0;
+  background-color: #222;
+  color: #fff;
+  outline: none;
+  font-size: 15px;
+}
+
+aside form input[type="checkbox"]{
+  margin: 10px;
+}
+
+aside form button{
+  min-height: 30px;
+  cursor: pointer;
+  transition: border-radius 3s ease;
+}
+
+aside form button:hover{
+  border-radius: 50px;
+}
+
+aside form input::placeholder,
+aside form textarea::placeholder{
+  color: #bbb;
+}
+
 .classAppStates{
-    background-color: #070;
-    padding: 25px 0 20px 0;
+  background-color: #070;
+  padding: 25px;
 }
 
 .funAppStates{
-    background-color: #3a9bea;
-    padding: 25px 0 20px 0;
+  background-color: #3a9bea;
+  padding: 25px;
 }
 
 .thisIsClass{
-border: 3px solid red;
-margin-bottom: 10px;
+  border: 3px solid red;
+  margin-bottom: 10px;
+  padding: 10px;
 }

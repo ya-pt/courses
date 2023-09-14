@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 
 // импортируем созданные компоненты
 import ClassCompMyApp2, { FunCompMyApp, ClassAppStates, FunAppStates} from "./componentBlocks/App";
-import UsersList from "./componentBlocks/UsersList.tsx";
+import AppUsersList from "./componentBlocks/AppUsersList";
 import "./css/main.css"; //подключение стилей ко всему проекту
 
 // (FUNCTION COMPONENTS)
@@ -53,6 +53,6 @@ root3.render(
 const rootListUsers = createRoot(document.querySelector("#listUsers"));
 rootListUsers.render(
   <React.StrictMode>
-    <UsersList/>
+    <AppUsersList/>
   </React.StrictMode>
 );
