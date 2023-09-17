@@ -1,19 +1,16 @@
 import React from "react";
 import { IoCloseCircleSharp, IoHammerSharp } from "react-icons/io5";
+import { UserTypes } from "./UserTypes";
 
 interface UserProps {
-    user: {
-      firstName: string;
-      lastName: string;
-      bio: string;
-      isHappy: boolean;
-    };
+    user: UserTypes;
+    onDelete: (id: number) => void;
 }
 
 const User: React.FC<UserProps> = (props) => {
     return(
         <div className="user">
-            <IoCloseCircleSharp className="deleteIcon"/>
+            <IoCloseCircleSharp onClick={() => props.onDelete(props.user.id)} className="deleteIcon"/>
             <IoHammerSharp className="editIcon"/>
             <h3>{props.user.firstName} {props.user.lastName}</h3>
             <p>{props.user.bio}</p>

@@ -4,8 +4,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 // импортируем созданные компоненты
-import ClassCompMyApp2, { FunCompMyApp, ClassAppStates, FunAppStates} from "./componentBlocks/App";
-import AppUsersList from "./componentBlocks/AppUsersList";
+import ClassCompMyApp2, { FunCompMyApp, ClassAppStates, FunAppStates} from "./containers/App";
+import AppUsersList from "./containers/AppUsersList";
 import "./css/main.css"; //подключение стилей ко всему проекту
 
 // (FUNCTION COMPONENTS)

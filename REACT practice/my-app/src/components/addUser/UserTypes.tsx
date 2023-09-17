@@ -1,5 +1,5 @@
 export interface UserTypes {
-    id?: number; // id является необязательным полем
+    id: number; // id является необязательным полем
     firstName: string;
     lastName: string;
     email: string;
