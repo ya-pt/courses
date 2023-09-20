@@ -3,7 +3,7 @@ import FunHeader from "../components/FunHeader.js";
 import Users from "../components/addUser/Users";
 import AddUser from "../components/addUser/AddUser";
 import { UserTypes } from "../components/addUser/UserTypes";
-import { AddUserTypes } from "../components/addUser/AddUser"
+import { AddUserTypes } from "../components/addUser/AddUser";
 
 const AppUsersList: React.FC = () => {
     // Используем определенный тип UserTypes для массива users
@@ -34,6 +34,24 @@ const AppUsersList: React.FC = () => {
         setUsers([...users.filter((el) => el.id !== id)]) //filter - создает новый массив, содержащий только те элементы, для которых условие возвращает true.
     }
 
+    function editUser(newValues: UserTypes){
+        setUsers((prevUsers) => {
+            // Создаем новый массив, обновляя пользователя с заданным id
+            const updatedUsers = prevUsers.map((user) => {
+                if (user.id === newValues.id) {
+                    // Если id совпадает, ОБНОВЛЯЕМ пользователя с новыми значениями из newValues
+                    return { ...user, ...newValues };
+                }
+                return user; // В противном случае, оставляем пользователя без изменений
+            });
+    
+            // Выводим обновленный массив в консоль
+            console.log(updatedUsers); // актуальное состояние - синхронно
+    
+            // Возвращаем обновленный массив как новое состояние
+            return updatedUsers;
+        });
+    }
 
     // Создаем функцию addUser, которая принимает ОБЪЕКТ user типа UserTypes
     function addUser(user: AddUserTypes) {
@@ -47,7 +65,7 @@ const AppUsersList: React.FC = () => {
         <div>
             <FunHeader title=" a list of users"/>
             <main>
-                <Users users={users} onDelete={deleteUser}/>
+                <Users users={users} onDelete={deleteUser} onEdit={editUser}/>
             </main>
             <aside>
                 <AddUser onAdd={addUser}/>

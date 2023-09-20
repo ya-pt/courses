@@ -1,36 +1,15 @@
 import React, { useRef, useState } from "react";
+import { UserTypes } from "./UserTypes";
 
-export interface AddUserTypes {
-    firstName: string;
-    lastName: string;
-    email: string;
-    age: number;
-    bio: string;
-    isHappy: boolean;
+interface EditUserProps {
+    user: UserTypes;
+    onEdit: (newValues: UserTypes) => void;
 }
 
-// void здесь указывает на то, что функция выполняет "побочные эффекты",
-// (например, изменение состояния, отправка данных на сервер и т. д.),
-// но не возвращает какое-либо конкретное значение.
-interface AddUserProps {
-    onAdd: (user: AddUserTypes) => void;
-}
-
-
-const AddUser: React.FC<AddUserProps> = (props) => {
-
-    // начальное состояние остается неизменным в течение жизни компонента
-    const initialUser = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        age: 1,
-        bio: '',
-        isHappy: false,
-    };
+const EditUser: React.FC<EditUserProps> = (props) => {
 
     // Инициализируем состояние компонента с ОБЪЕКТОМ пользователя
-    const [user, setUser] = useState<AddUserTypes>(initialUser);
+    const [user, setUser] = useState<UserTypes>(props.user);
 
     const handleFieldChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setUser((prevUser) => ({
@@ -44,16 +23,15 @@ const AddUser: React.FC<AddUserProps> = (props) => {
         if (myForm.current) {
             myForm.current.reset(); // reset - для сброса значений полей формы к их исходным значениям
         }
-        setUser(initialUser);
     };
 
     // useRef: Это хук в React, который позволяет создавать и хранить ссылки (ref) в функциональных компонентах. 
     const myForm = useRef<HTMLFormElement | null>(null);
 
+
     return(
         // ref - атрибут(ссылки), обеспечивает прямой доступ к DOM-узлам в React-приложении.
         <form ref={myForm}>
-            {/* { id подставляем самостоятельно, остальные значения получаем от пользователя } */}
             <input
                 placeholder="firstName"
                 onChange={handleFieldChange('firstName')}
@@ -86,20 +64,24 @@ const AddUser: React.FC<AddUserProps> = (props) => {
                 type="checkbox"
                 id="isHappy"
                 checked={user.isHappy} //устанавливает значение чекбокса
-                onChange={(e) =>
+                onChange={(e) => {
                     setUser((prevUser) => ({
                         ...prevUser,
                         isHappy: e.target.checked, //checked является булевым значением (true или false)
-                    }))
-                }
+                    }));
+                    console.log(user.isHappy); // React может обновлять состояние асинхронно, поэтому console может отобразить предыдущее значение 
+                    console.log(e.target.checked); // Это будет актуальное значение после изменения состояния
+                }}
             />
 
             {/* {используем type button, не submit - так как он перезагружает страницу} */}
             <button
                 type="button"
                 onClick={() => {
-                    props.onAdd(user)
-                    handleReset()
+                    handleReset();
+
+                    // вызываем функцию через props и изменяем пользователя с текущим id
+                    props.onEdit(user);
                 }}
             >
                 add
@@ -108,4 +90,4 @@ const AddUser: React.FC<AddUserProps> = (props) => {
     );
 }
 
-export default AddUser;
+export default EditUser;
