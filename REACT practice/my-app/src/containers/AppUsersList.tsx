@@ -9,57 +9,43 @@ const AppUsersList: React.FC = () => {
     // Используем определенный тип UserTypes для массива users
     // Теперь TypeScript знает, что users - МАССИВ объектов типа UserTypes
     // Используем useState для создания состояния users и инициализации его начальным значением
-    const [users, setUsers] = useState<UserTypes[]>([
-        {
-            id: 1,
-            firstName: 'John',
-            lastName: 'Doe',
-            email: 'john@example.com',
-            age: 28,
-            bio: 'I love programming and hiking.',
-            isHappy: true,
-        },
-        {
-            id: 2,
-            firstName: 'Jane',
-            lastName: 'Smith',
-            email: 'jane@example.com',
-            age: 32,
-            bio: 'Passionate about art and photography.',
-            isHappy: false,
-        },
-    ]);
+    const [users, setUsers] = useState<UserTypes[]>([]);
+    const [maxId, setMaxId] = useState(1);
     
     function deleteUser(id:number){
         setUsers([...users.filter((el) => el.id !== id)]) //filter - создает новый массив, содержащий только те элементы, для которых условие возвращает true.
     }
 
-    function editUser(newValues: UserTypes){
+    function editUser(newValues: UserTypes) {
         setUsers((prevUsers) => {
-            // Создаем новый массив, обновляя пользователя с заданным id
-            const updatedUsers = prevUsers.map((user) => {
-                if (user.id === newValues.id) {
-                    // Если id совпадает, ОБНОВЛЯЕМ пользователя с новыми значениями из newValues
-                    return { ...user, ...newValues };
-                }
-                return user; // В противном случае, оставляем пользователя без изменений
-            });
-    
-            // Выводим обновленный массив в консоль
-            console.log(updatedUsers); // актуальное состояние - синхронно
-    
-            // Возвращаем обновленный массив как новое состояние
-            return updatedUsers;
+          const index = prevUsers.findIndex((user) => user.id === newValues.id);
+      
+          if (index === -1) {
+            // Если пользователя с указанным id не найдено, вернуть исходный массив без изменений
+            return prevUsers;
+          }
+      
+          // Создать новый массив, который содержит все элементы из предыдущего массива
+          const updatedUsers = [...prevUsers];
+      
+          // Обновить элемент массива, используя операцию spread, чтобы создать новый объект
+          updatedUsers[index] = { ...updatedUsers[index], ...newValues };
+          //при совпадении свойств, значения из newValues перезаписывают значения из updatedUsers[index].
+      
+          // Вывести обновленный массив в консоль
+          console.log(updatedUsers);
+      
+          // Вернуть обновленный массив как новое состояние
+          return updatedUsers;
         });
     }
 
     // Создаем функцию addUser, которая принимает ОБЪЕКТ user типа UserTypes
-    function addUser(user: AddUserTypes) {
-        // Генерируем уникальный id для нового пользователя
-        const id = users.length + 1
-        const newUser = { ...user, id }; // Создаем нового пользователя с уникальным id
+    const addUser = (user: AddUserTypes) => {
+        const newUser = { ...user, id: maxId }; // Создаем нового пользователя с уникальным ID
         setUsers([...users, newUser]); // Обновляем состояние users, добавляя нового пользователя
-    }
+        setMaxId(maxId + 1); // Обновляем максимальный ID для будущих пользователей
+    };
 
     return(
         <div>

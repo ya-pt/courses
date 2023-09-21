@@ -24,7 +24,7 @@ const AddUser: React.FC<AddUserProps> = (props) => {
         firstName: '',
         lastName: '',
         email: '',
-        age: 1,
+        age: 0,
         bio: '',
         isHappy: false,
     };
