@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 
 export interface AddUserTypes {
-    firstName: string;
-    lastName: string;
+    first_name: string;
+    last_name: string;
     email: string;
     age: number;
     bio: string;
@@ -21,8 +21,8 @@ const AddUser: React.FC<AddUserProps> = (props) => {
 
     // начальное состояние остается неизменным в течение жизни компонента
     const initialUser = {
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         age: 0,
         bio: '',
@@ -55,12 +55,12 @@ const AddUser: React.FC<AddUserProps> = (props) => {
         <form ref={myForm}>
             {/* { id подставляем самостоятельно, остальные значения получаем от пользователя } */}
             <input
-                placeholder="firstName"
-                onChange={handleFieldChange('firstName')}
+                placeholder="first_name"
+                onChange={handleFieldChange('first_name')}
             />
             <input
-                placeholder="lastName"
-                onChange={handleFieldChange('lastName')}
+                placeholder="last_name"
+                onChange={handleFieldChange('last_name')}
             />
             <input
                 placeholder="email"

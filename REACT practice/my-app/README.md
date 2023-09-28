@@ -11,6 +11,8 @@
         npm install @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript babel-loader --save-dev
     uploaded react icons: 
         npm i react-icons
+    Installed Axios:
+        npm install axios
 
 
 #settings

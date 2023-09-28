@@ -33,12 +33,12 @@ const EditUser: React.FC<EditUserProps> = (props) => {
         // ref - атрибут(ссылки), обеспечивает прямой доступ к DOM-узлам в React-приложении.
         <form ref={myForm}>
             <input
-                placeholder="firstName"
-                onChange={handleFieldChange('firstName')}
+                placeholder="first_name"
+                onChange={handleFieldChange('first_name')}
             />
             <input
-                placeholder="lastName"
-                onChange={handleFieldChange('lastName')}
+                placeholder="last_name"
+                onChange={handleFieldChange('last_name')}
             />
             <input
                 placeholder="email"

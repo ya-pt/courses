@@ -1,19 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FunHeader from "../components/FunHeader.js";
 import Users from "../components/addUser/Users";
 import AddUser from "../components/addUser/AddUser";
 import { UserTypes } from "../components/addUser/UserTypes";
 import { AddUserTypes } from "../components/addUser/AddUser";
+import axios from 'axios';
+
+const baseUrl = "https://reqres.in/api/users?page=1"; //ссылка страницы в браузере + API Request = JSON(формат) объект
 
 const AppUsersList: React.FC = () => {
+
     // Используем определенный тип UserTypes для массива users
     // Теперь TypeScript знает, что users - МАССИВ объектов типа UserTypes
-    // Используем useState для создания состояния users и инициализации его начальным значением
+    // Используем useState для создания состояния и инициализации его начальным значением
     const [users, setUsers] = useState<UserTypes[]>([]);
-    const [maxId, setMaxId] = useState(1);
+    const [maxId, setMaxId] = useState(10); //id начинаем с 10, так как подключаем тест-API с имеющимися users
+
+
+    // Побочный эффект: выполняется после рендеринга компонента
+    useEffect(() => {
+        axios.get(baseUrl)
+        .then((res) => {
+            setUsers(res.data.data);
+        })
+        .catch((error) => {
+            console.error("Ошибка при запросе данных:", error);
+        });
+    }, []); // Пустой массив зависимостей указывает на то, что эффект должен выполниться только один раз при монтировании
+
+
     
     function deleteUser(id:number){
-        setUsers([...users.filter((el) => el.id !== id)]) //filter - создает новый массив, содержащий только те элементы, для которых условие возвращает true.
+        //filter - создает новый массив, содержащий только те элементы, для которых условие возвращает true.
+        setUsers((prevUsers) => prevUsers.filter((el) => el.id !== id));
     }
 
     function editUser(newValues: UserTypes) {
