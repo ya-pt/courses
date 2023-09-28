@@ -18,6 +18,7 @@ const User: React.FC<UserProps> = (props) => {
             <IoCloseCircleSharp onClick={() => props.onDelete(props.user.id)} className="deleteIcon"/>
             <IoHammerSharp onClick={() => { setEditForm(!editForm)}} className="editIcon"/>
             <h3>{props.user.first_name} {props.user.last_name}</h3>
+            <img src={props.user.avatar} alt="user logo" />
             <p>{props.user.email}</p>
             <p>{props.user.age}</p>
             <p>{props.user.bio}</p>

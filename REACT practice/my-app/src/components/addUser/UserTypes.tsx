@@ -6,5 +6,6 @@ export interface UserTypes {
     age: number;
     bio: string;
     isHappy: boolean;
+    avatar?: string;
     // Другие свойства, если они есть
 }
