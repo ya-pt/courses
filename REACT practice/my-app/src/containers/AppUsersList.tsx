@@ -5,6 +5,9 @@ import AddUser from "../components/addUser/AddUser";
 import { UserTypes } from "../components/addUser/UserTypes";
 import { AddUserTypes } from "../components/addUser/AddUser";
 import axios from 'axios';
+//axios - это библиотека для выполнения HTTP-запросов в JavaScript-приложениях.
+//используется для взаимодействия с удаленными серверами или API
+//для получения данных, отправки данных на сервер, обновления данных и удаления данных. 
 
 const baseUrl = "https://reqres.in/api/users?page=1"; //ссылка страницы в браузере + API Request = JSON(формат) объект
 
