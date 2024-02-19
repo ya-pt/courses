@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "outDir": "./dist", //папка в которой будут храниться transpiled .js(+.map) форматы
+    },
+    "include": ["./src/**/*"], // какие файлы будут включены для transpiled(все уровни вложенности, для папки src)
+    "exclude": ["node_modules"], // что будет исключено для transpiled
+}
